@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	input{
+
+		margin:0;
+		padding:0;
+		outline: none;
+		display: block;
+		width:120px;
+		height:60px;
+		background: black;
+		margin:30px auto;
+		color:#fff;
+		margin-bottom:100px;
+	}
+	div{
+		width:480px;
+		height:100px;
+		margin:50px auto;
+		
+	}
+	.div1{
+		display: inline-block;
+		width:100px;
+		height:100px;
+		background: #000;
+		font:40px/100px "宋体";
+		color:#fff;
+		text-align: center;
+		margin-right:250px;
+		margin-left:10px;
+
+	}
+	.div2{
+		display: inline-block;
+		width:100px;
+		height:100px;
+		background: #000;
+		font:40px/100px "宋体";
+		color:#fff;
+		text-align: center;
+		
+	}
+
+	</style>
+	<script>
+	window.onload=function(){
+		var divs =document.getElementsByTagName('span');
+		var input=document.getElementsByTagName('input');
+		input[0].onclick=function(){
+
+			// Math.random()*64// 
+			var num=Math.random()*64;
+				
+			num=parseInt(num,10)
+				
+			divs[0].innerHTML=num+1
+
+
+
+			// Math.random()  生成[0,1)之间的伪随机数
+			var n=Math.random()*64;
+			n=parseInt(n,10)// 取整，十进制
+			divs[1].innerHTML=n+1
+			console.log(num, n)
+
+		}
+
+		
+	}
+	
+	</script>
+</head>
+
+<body>
+
+<input type="button" value="随机点名">
+<div>
+
+<span class="div1"></span>
+<span class="div2"></span>
+</div>
+</body>
+</html>
