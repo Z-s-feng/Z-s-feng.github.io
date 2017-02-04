@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body{
+	margin:0;
+}
+input{
+	margin:0;
+	padding:0;
+	outline:none;
+}
+#hpWrap{
+	width:385px;
+	height:550px;
+	border:10px solid #ad7e0a;
+	margin:30px auto;
+	background: #5a0002;
+
+	/*position: absolute;*/
+}
+#hpWrap #header{
+	height:60px;
+	border-bottom: 10px solid #ad7e0a;
+
+}
+#header span{
+	font:25px/60px "宋体";
+	margin-left: 15px;
+	color:#f35a01;
+}
+#header input{
+	float:right;
+	width:60px;
+	height:30px;
+	font:12px/30px "宋体";
+	margin:15px;
+}
+#hpBox{
+	width:400px;
+	height:480px;
+	position: relative;
+	overflow: hidden;
+
+}
+#hpBox div{
+	width:35px;
+	height:35px;
+	
+	
+	position: absolute;
+}
+</style>
+</head>
+<body>
+<div id="hpWrap">
+<header id="header">
+	<span>哈哈</span>
+	<input type="button" value="开始">
+</header>
+<div id="hpBox">
+</div>
+</div>
+</body>
+<script>
+	var hpBox = document.getElementById('hpBox');
+	var arr = ["red","green","blue","#aa37d4"];
+	var divs = hpBox.getElementsByTagName('div');
+	var bm = 0;
+	craetB();
+	getPs();
+	setInterval(function(){
+		up();
+		craetB();
+		getPs()
+		
+	},2050)
+	
+	function craetB(){		// 创建最后一排的8div;
+		for(var i=0;i<8;i++){
+			var divL = document.createElement("div") 
+			var cl = parseInt(Math.random()*4)
+			divL.style.background=arr[cl]
+			divL.style.border="5px outset "+arr[cl];
+			divL.style.left=48*i+2+"px"
+			divL.style.bottom=0+"px"
+			hpBox.appendChild(divL)	
+		}
+	}
+	
+	function up(){	//每次让所有的div往上移动48px;
+		
+		for(var i = 0 ; i < divs.length ; i++){
+			bm=parseInt(divs[i].style.bottom);
+			
+		
+			divs[i].style.bottom=bm+48+"px"
+
+			divs[i].onclick=function(){
+
+				var lm=parseInt(this.style.left);
+				var tm=parseInt(this.style.bottom);
+				
+
+
+
+			}
+		}	
+	}
+
+	function getPs(){
+		for(var i = 0 ; i < divs.length ; i++){
+
+			divs[i].onclick=function(){
+				var count = 0;
+				
+				var that = this;
+				re(this);
+				function re(that){
+					count++
+					if(count == 4){
+						return;
+					}
+					var lm=parseInt(that.style.left);
+					var tm=parseInt(that.style.bottom);	
+					var bgClolr = that.style.backgroundColor;
+					var divs = hpBox.getElementsByTagName('div');	
+					for(var i = 0 ; i < divs.length ; i++){
+						var nlm=parseInt(divs[i].style.left);
+						var ntm=parseInt(divs[i].style.bottom);	
+						var nbgClolr = divs[i].style.backgroundColor;
+					
+						if((nlm == lm+48)&&(tm == ntm)&&(bgClolr == nbgClolr)){
+							
+							hpBox.removeChild(that)
+							hpBox.removeChild(divs[i-1])
+							
+								// console.log(divs[i-7])
+								// divs[i-8].style.bottom=ntm-48+"px"
+							
+							var divs = hpBox.getElementsByTagName('div');
+							for(var i = 0 ; i < divs.length ; i++){
+								var nlm=parseInt(divs[i].style.left);
+								var ntm=parseInt(divs[i].style.bottom);	
+								var nbgClolr = divs[i].style.backgroundColor;
+								
+								if((nlm == lm-48)&&(tm == ntm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((ntm == tm-48)&&(lm == nlm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((ntm == tm+48)&&(lm == nlm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+							}
+						}
+						if((nlm == lm-48)&&(tm == ntm)&&(bgClolr == nbgClolr)){
+							
+							hpBox.removeChild(that)
+							hpBox.removeChild(divs[i])
+							var divs = hpBox.getElementsByTagName('div');
+							for(var i = 0 ; i < divs.length ; i++){
+								var nlm=parseInt(divs[i].style.left);
+								var ntm=parseInt(divs[i].style.bottom);	
+								var nbgClolr = divs[i].style.backgroundColor;
+								
+								if((nlm == lm+48)&&(tm == ntm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((ntm == tm-48)&&(lm == nlm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((ntm == tm+48)&&(lm == nlm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+							}
+						}
+						if((ntm == tm-48)&&(lm == nlm)&&(bgClolr == nbgClolr)){
+							
+							hpBox.removeChild(that)
+							hpBox.removeChild(divs[i-1])
+							var divs = hpBox.getElementsByTagName('div');
+							for(var i = 0 ; i < divs.length ; i++){
+								var nlm=parseInt(divs[i].style.left);
+								var ntm=parseInt(divs[i].style.bottom);	
+								var nbgClolr = divs[i].style.backgroundColor;
+								
+								if((ntm == tm+48)&&(lm == nlm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((nlm == lm-48)&&(tm == ntm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((nlm == lm+48)&&(tm == ntm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+							}
+						}
+						if((ntm == tm+48)&&(lm == nlm)&&(bgClolr == nbgClolr)){
+							console.log(0)
+							hpBox.removeChild(that)
+							hpBox.removeChild(divs[i])
+							var divs = hpBox.getElementsByTagName('div');
+							for(var i = 0 ; i < divs.length ; i++){
+								var nlm=parseInt(divs[i].style.left);
+								var ntm=parseInt(divs[i].style.bottom);	
+								var nbgClolr = divs[i].style.backgroundColor;
+								
+								if((ntm == tm-48)&&(lm == nlm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((nlm == lm+48)&&(tm == ntm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+									
+								}
+								if((nlm == lm-48)&&(tm == ntm)&&(bgClolr == nbgClolr)){		
+									hpBox.removeChild(divs[i])
+
+								}
+								
+							}
+						}
+					}
+				}
+				Tdown()
+			}
+
+		}	
+		
+	}
+			function Tdown(){
+				var divs = hpBox.getElementsByTagName('div');
+
+				for(var i=0;i<divs.length;i++){
+
+					var tm = parseInt(divs[i].style.bottom)-48
+					var lm = parseInt(divs[i].style.left);
+					var ok = 0
+					var divs = hpBox.getElementsByTagName('div');
+					for(var j=0;j<divs.length;j++){
+						var ntm = parseInt(divs[j].style.bottom)
+						var nlm = parseInt(divs[j].style.left)
+						if((tm == ntm)&&( lm == nlm)){
+							ok = 1
+							
+						}						
+					}
+					console.log(ok)
+					if(ok == 1){
+						
+						divs[i].style.bottom =parseInt(divs[i].style.bottom)-48+"px"
+					}else{
+						divs[i].style.bottom =divs[i].style.bottom
+					}
+
+				}
+
+			}
+
+</script>
+</html>

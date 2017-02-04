@@ -1,0 +1,430 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body{
+	margin:0;
+	overflow: hidden;
+	position: relative;
+}
+img{
+	border:none;
+	vertical-align: top;
+}
+input{
+	margin:0;
+	padding:0;
+	outline:none;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#bgImg{
+	width: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: -100;
+
+}
+#canvas{
+	display: block;
+	/*background: skyblue;*/
+	/*margin:40px auto;*/
+	position: absolute;
+	right:70px;
+	top:50px;
+}
+
+/*------------------------ 贪吃蛇  */
+#icoSnake{
+	width:100px;
+	height:120px;
+	padding:8px 20px 7px 20px ;
+	text-align: center;
+	position: absolute;
+	left:0px;
+	top:0px;
+	
+}
+#icoSnake #snkImg{
+	width: 100px;
+	height:100px;
+	
+}
+.icoSnake{
+	width:100px;
+	height:120px;
+	padding:8px 20px 7px 20px ;
+	text-align: center;
+	position: absolute;
+	
+	opacity: .4;
+}
+.snkImg{
+	width: 100px;
+	height:100px;
+
+}
+#icoSnake span{
+	font:20px/25px "宋体";
+}
+.snSpan{
+	font:20px/25px "宋体";
+}
+.click{
+	background: #caeb59;
+	
+	border-radius: 10%;
+}
+.un{
+	background:none;
+}
+#box{
+	margin:0 auto;
+	height:500px;
+	width:500px;
+	border:7px solid #A8FF24;
+	background: #fff584;
+	position: relative;
+	z-index: 1;
+	
+	top:50px;
+	display: none;
+	
+}
+
+.bodys{
+	width:10px;
+	height:10px;
+	background: springgreen;
+	border-radius: 40%;
+	position: absolute;
+	left:100px;
+	top:100px;
+}
+#new{
+	width:10px;
+	height:10px;
+	border-radius: 30%;
+	background: blueviolet;
+	position: absolute;
+	display: none;
+	
+}
+#over{
+	width:300px;
+	height:150px;
+	background:#91e5c5;
+	position: absolute;
+	left:100px;
+	top:175px;
+	text-align: center;
+	z-index: 2;
+	display: none;
+
+}
+#over .end{
+	display: inline-block;
+	font:40px/70px "微软雅黑";
+	text-align: center;
+	width:300px;
+	color:#f1153e;
+}
+#over .more{
+	display: inline-block;
+	font:20px/40px "宋体";
+}
+#over #leave{
+	display: inline-block;
+	font:20px/40px "宋体";
+}
+#over .more:hover{
+	color: green;
+}
+#over #leave:hover{
+	color: red;
+}
+/*------------------------ 贪吃蛇  */
+/*------------------------ 开心消消乐  */
+#gBox{
+	width:385px;
+	height:565px;
+	border:10px solid #ad7e0a;
+	margin:0 auto;
+	background: #5a0002;
+	position: relative;
+	display: none;
+	top:50px;
+}
+#gBox #header{
+	height:60px;
+	border-bottom: 10px solid #ad7e0a;
+
+}
+#header span{
+	font:25px/60px "宋体";
+	margin-left: 15px;
+	color:#f35a01;
+}
+#header input{
+	float:right;
+	width:60px;
+	height:30px;
+	font:12px/30px "宋体";
+	margin:15px;
+}
+#uBox{
+	margin-left:1px;
+	width:385px;
+	height:495px;
+	position:absolute;
+	left:0;
+	bottom:0;
+	
+	overflow:hidden;
+}
+#uBox ul{
+
+	float:left;
+	
+	background: blue;
+	position: absolute;
+	bottom: 0;
+
+}
+#uBox ul li{
+	width:35px;
+	height:35px;
+	border-width:5px;
+	border-style:outset; 
+	
+	background: red;
+}
+
+#Dover{
+	width:300px;
+	height:150px;
+	/*background:#bfd122;*/
+	position: absolute;
+	left:40px;
+	top:175px;
+	text-align: center;
+	z-index: 2;
+	display: none;
+
+}
+
+#Dover .Dmore{
+	
+	height:75px;
+	font:30px/75px "宋体";
+	background: #f6d20c;
+	opacity: .8;
+}
+#Dover #Dleave{
+	height:75px;
+	font:30px/75px "宋体";
+	background: #0cf6f3;
+	opacity: .8;
+}
+#Dover .Dmore:hover{
+	opacity: 1;
+}
+#Dover #Dleave:hover{
+	opacity: 1;
+}
+/*happ图标*/
+#icoHp{
+	width:100px;
+	height:120px;
+	padding:8px 20px 7px 20px ;
+	text-align: center;
+	position: absolute;
+	left:0px;
+	top:150px;
+	
+}
+#icoHp #happyImg{
+	width: 100px;
+	height:100px;
+	border-radius:10%;
+}
+
+#icoHp span{
+	font:20px/25px "宋体";
+}
+
+
+</style>
+</head>
+<body>
+<img src="img/bg.jpg" id="bgImg">
+<!-- snake图标 -->
+<div id="icoSnake">
+	<img src="img/snake.png" id="snkImg">
+	<span id="snkSpan">贪吃蛇</span>
+</div>
+<!--snake游戏-->
+<div id="box">
+	<div id="snake">
+	</div>
+	<div id="over">
+		<span class="end">Game Over</span>
+		<span class="more" id="again">再来一局</span></br>
+		<span id="leave">离开游戏</span>
+	</div>
+	<div id="new"></div>
+</div>
+<!--消消乐图标-->
+<div id="icoHp">
+	<img src="img/happy.png" id="happyImg">
+	<span id="happySpan">消消乐</span>
+</div>
+<!--消消乐游戏-->
+<div id="gBox">
+	<header id="header">
+		<span id="spanI">得分：0</span>
+		<input type="button" value="开始" id="gmBtn">
+	</header>
+	<div id="uBox">
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+	<div id="Dover">		
+		<div class="Dmore" id="Dagain">再来一局</div>
+		<div id="Dleave">离开游戏</div>
+	</div>
+</div>
+<canvas id="canvas" width="310" height="310"></canvas>
+<script src="snake.js"></script>
+<script src="canvas.js"></script>
+<script src="happy.js"></script>
+<script>
+		var _icoHp=document.getElementById('icoHp');
+		var gBox = document.getElementById('gBox');
+	    var _icoSnake=document.getElementById('icoSnake');
+		var box = document.getElementById('box');
+
+		_icoHp.addEventListener("dblclick",fn)
+		_icoSnake.addEventListener("dblclick",fn1)
+
+		function fn(e){
+			
+			gBox.style.display="block";
+		
+		}
+		function fn1(e){
+			
+			box.style.display="block";
+		
+		}
+	
+	
+</script>
+<!--
+<script> 
+	(function(){
+		Drag("icoSnake","snkImg","snkSpan","img/snake.png");
+		// Drag("icoHp","happyImg","happySpan","img/happy.png");
+	 	function Drag(Ddiv,Dimg,Dspan,_src){
+	 		var div = document.getElementById(Ddiv);
+			var p = document.getElementById(Dimg);
+			var fspan = document.getElementById(Dspan);
+			var m=0;
+			var n=0;
+			var k=0;
+			div.onmousedown=function(){
+				
+				div.className="click";
+				var div1 = document.createElement("div");
+				var p1 = document.createElement("img");
+				var span = document.createElement("span");
+				div1.className="icoSnake";
+
+				span.className="snSpan";
+				p1.className="snkImg";
+				p1.setAttribute("src",_src);			
+				div1.appendChild(p1);
+				span.innerHTML=fspan.innerHTML;	
+				div1.appendChild(span);
+				document.body.appendChild(div1);			
+				div1.style.left=div.style.left;
+				div1.style.top=div.style.top;
+				document.onmousemove=function(e){
+					k++;		
+					m = e.pageX;
+					n = e.pageY;
+					var nleft = m-div1.offsetWidth/2;
+					var ntop = n-div1.offsetHeight/2;
+					if(nleft<0){
+						nleft=0
+					}else if(nleft>window.innerWidth-div1.offsetWidth){
+						nleft=window.innerWidth-div1.offsetWidth
+					}
+					if(ntop<0){
+						ntop=0
+					}else if(ntop>window.innerHeight-div1.offsetHeight){
+						ntop=window.innerHeight-div1.offsetHeight
+					}
+
+
+					div1.style.left=nleft+"px";				
+					div1.style.top=ntop+"px";
+					e.preventDefault(); 
+					// return false;
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.body.removeChild(div1);
+					var nleft = m-div.offsetWidth/2;
+					var ntop = n-div.offsetHeight/2;
+					if(nleft<0){
+						nleft=0
+					}else if(nleft>window.innerWidth-div.offsetWidth){
+						nleft=window.innerWidth-div.offsetWidth
+					}
+					if(ntop<0){
+						ntop=0
+					}else if(ntop>window.innerHeight-div.offsetHeight){
+						ntop=window.innerHeight-div.offsetHeight
+					}
+
+
+					div.style.left=nleft+"px";
+					div.style.top=ntop+"px";
+					// if(k==0){
+					// 	div.style.left=0+"px";
+					// 	div.style.top=0+"px";
+					// }				
+				}
+				document.onclick=function(e){
+
+					var pt = div.getBoundingClientRect();
+					var x = e.pageX;
+					var y = e.pageY;
+					if(x<pt.left||x>pt.right||y<pt.top||y>pt.bottom){
+						div.className="un";
+					}
+				}
+			}	
+			
+	 	}
+	})()
+	
+ 	
+</script>
+-->
+
+</body>
+</html>

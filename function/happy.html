@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body{
+	margin:0;
+}
+input{
+	margin:0;
+	padding:0;
+	outline:none;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#gBox{
+	width:385px;
+	height:565px;
+	border:10px solid #ad7e0a;
+	margin:30px auto;
+	background: #5a0002;
+	position: relative;
+
+}
+#gBox #header{
+	height:60px;
+	border-bottom: 10px solid #ad7e0a;
+
+}
+#header span{
+	font:25px/60px "宋体";
+	margin-left: 15px;
+	color:#f35a01;
+}
+#header input{
+	float:right;
+	width:60px;
+	height:30px;
+	font:12px/30px "宋体";
+	margin:15px;
+}
+#uBox{
+	margin-left:1px;
+	width:385px;
+	height:495px;
+	position:absolute;
+	left:0;
+	bottom:0;
+	
+	overflow:hidden;
+}
+#uBox ul{
+
+	float:left;
+	
+	background: blue;
+	position: absolute;
+	bottom: 0;
+
+}
+#uBox ul li{
+	width:35px;
+	height:35px;
+	border-width:5px;
+	border-style:outset; 
+	
+	background: red;
+}
+
+#Dover{
+	width:300px;
+	height:150px;
+	/*background:#bfd122;*/
+	position: absolute;
+	left:40px;
+	top:175px;
+	text-align: center;
+	z-index: 2;
+	display: none;
+
+}
+
+#Dover .Dmore{
+	
+	height:75px;
+	font:30px/75px "宋体";
+	background: #f6d20c;
+	opacity: .8;
+}
+#Dover #Dleave{
+	height:75px;
+	font:30px/75px "宋体";
+	background: #0cf6f3;
+	opacity: .8;
+}
+#Dover .Dmore:hover{
+	opacity: 1;
+}
+#Dover #Dleave:hover{
+	opacity: 1;
+}
+</style>
+</head>
+<body>
+<div id="gBox">
+	<header id="header">
+		<span id="spanI">得分：0</span>
+		<input type="button" value="开始" id="gmBtn">
+	</header>
+	<div id="uBox">
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+	<div id="Dover">		
+		<div class="Dmore" id="Dagain">再来一局</div>
+		<div id="Dleave">离开游戏</div>
+	</div>
+</div>
+<script>
+	var gBox = document.getElementById('gBox');	
+	var gmBtn = document.getElementById('gmBtn');
+	var uBox = document.getElementById('uBox');
+	var spanI = document.getElementById('spanI');
+	var Dover = document.getElementById('Dover');
+	var Dagain = document.getElementById('Dagain');
+	var Dleave = document.getElementById('Dleave');
+	var uls = uBox.getElementsByTagName('ul');
+	var arr = ["red","blue","green","#a11ada"]
+	for(var i = 0 ; i < uls.length ; i++){
+		uls[i].style.left=48*i+"px"
+	}
+	Dleave.onclick=function(){
+		gBox.style.display="none";
+	}
+	Dagain.onclick=function(){
+		Dover.style.display="none";
+		ag()
+	}
+	gmBtn.onclick=ag;
+
+	function ag(){
+		var timeaa = 0;
+		var timecc = 0;
+		
+		var cont = 0;
+		clearA();
+		
+		function clearA(){
+			for(var i = 0 ; i < uls.length ; i++){
+				
+				uls[i].innerHTML="";
+
+			}
+			spanI.innerHTML="得分："+cont;
+		}
+
+		timeaa = setInterval(function(){
+
+			creatLi()
+			gg()
+
+		},500)
+
+		timecc = setInterval(function(){
+			
+			clickLi()
+
+		},100)
+
+
+		function gg(){
+			for(var i = 0 ; i < uls.length ; i++ ){
+				if(uls[i].children.length>11){
+					Dover.style.display="block";
+					clearInterval(timeaa);
+					clearInterval(timecc);
+				
+				}
+			}
+			
+		}
+		function creatLi(){
+			for(var i = 0 ; i < uls.length ; i++){
+				var li = document.createElement("li")
+				var cl = parseInt(Math.random()*4)
+				li.style.borderColor=arr[cl];
+				li.style.background=arr[cl];
+				uls[i].appendChild(li)
+
+			}
+			
+		}
+		
+		function clickLi(){
+			var uls = uBox.getElementsByTagName('ul');
+			for(var i = 0 ; i < uls.length ; i++){
+				var lis = uls[i].getElementsByTagName('li')				 
+				for(var j = 0 ; j < lis.length ; j++){
+					lis[j].index = j
+					lis[j].onclick=function(){
+						var pt = this.parentNode;
+						var nex = this.nextElementSibling;
+						var pre = this.previousElementSibling;
+						var tc = this.style.borderColor;
+						var ptN = pt.nextElementSibling;
+						var that = this;
+						var ptP = pt.previousElementSibling;
+						var rigthNum = 0;
+						var leftNum = 0				
+						if(nex&&nex.style.borderColor==tc){							
+							if(pre&&pre.style.borderColor==tc){
+								var indexP = 0;
+
+								pree(pre)
+								function pree(pre){
+									if(indexP<8){
+										indexP++
+										pree(pre)
+										var pre = pre.previousElementSibling;
+										if(pre&&pre.style.borderColor==tc){
+											pt.removeChild(pre);
+											cont++
+										}
+									}
+									
+								}
+								
+								pt.removeChild(pre);
+								cont++							
+							}
+							rightM(that)					
+							var indexN = 0;
+							nexx(nex)
+							function nexx(nex){
+								if(indexN<8){
+									indexN++;
+									nexx(nex);
+									var nex = nex.nextElementSibling;
+
+									
+									if(nex&&nex.style.borderColor==tc){
+										cont++
+										pt.removeChild(nex);
+									}										
+								}else{
+									return
+								}								
+							}
+								cont++;
+								cont++;
+
+								pt.removeChild(nex);
+								pt.removeChild(this);
+						}
+						if(pre&&pre.style.borderColor==tc){														
+								var indexP = 0;
+								pree(pre)
+								function pree(pre){
+									if(indexP<8){
+										indexP++
+										pree(pre)
+										var pre = pre.previousElementSibling;
+										if(pre&&pre.style.borderColor==tc){
+											pt.removeChild(pre);
+											cont++
+										}
+									}
+									
+								}
+								rightM(that)
+								cont++;
+								cont++;
+								pt.removeChild(pre);
+								pt.removeChild(this);
+																								
+						}
+						rightM(that)
+						leftM(that)
+
+						function rightM(that){
+
+							var pt = that.parentNode;
+							var ptN = pt.nextElementSibling;
+
+							rigthNum++
+							if(rigthNum<8){
+								if(ptN){
+									var mm = ptN.children.length;
+									var nn = pt.children.length;
+									var mn = nn-that.index;
+									if(ptN.children[mm-mn]&&ptN.children[mm-mn].style.borderColor==tc){
+
+										rightM(ptN.children[mm-mn])
+										cont++;
+										cont++;
+										pt.removeChild(that);
+										ptN.removeChild(ptN.children[mm-mn]);
+									}
+								}
+							}else{
+								return
+							}
+							
+						}
+						function leftM(that){
+							var pt = that.parentNode;
+							var ptP = pt.previousElementSibling;
+
+							leftNum++
+							if(leftNum<8){
+								if(ptP){
+									var mm = ptP.children.length;
+									var nn = pt.children.length;
+									var mn = nn-that.index;
+									if(ptP.children[mm-mn]&&ptP.children[mm-mn].style.borderColor==tc){
+
+										leftM(ptP.children[mm-mn])
+										cont++;
+										cont++;
+										pt.removeChild(that);
+										ptP.removeChild(ptP.children[mm-mn]);
+									}
+								}
+							}else{
+								return
+							}
+							
+						}	
+						
+					}
+
+
+				}
+
+			}
+			spanI.innerHTML="得分："+cont;
+		}
+
+
+	}
+
+</script>
+</body>
+</html>

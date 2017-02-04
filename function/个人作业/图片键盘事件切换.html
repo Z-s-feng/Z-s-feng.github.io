@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+div{
+	width:150px;
+	height:150px;
+	border:1px solid #000;
+	position: relative;
+	margin:150px auto;
+	margin-bottom: 0;
+	overflow: hidden;
+}
+section{
+	width:450px;
+	height:150px;
+
+	position: absolute;
+	left:-150px;
+	top:0;
+
+/*	border:1px solid red;*/
+}
+img{
+	
+	width:150px;
+	height:150px;
+	vertical-align: top;
+	margin-right:-8px;
+	
+}
+nav{
+	width:150px;
+	height:150px;
+	margin:0 auto;
+	position: relative;
+	
+}
+input{
+	width:50px;
+	height:50px;
+	margin:0;
+	padding:0;
+	outline: none;
+	position: absolute;
+
+}
+.t{
+	left:50px;
+	top:-230px;
+}
+.b{
+	left:50px;
+	top:30px;
+}
+.l{
+	left:-80px;
+	top:-100px;
+}
+.r{
+	right:-80px;
+	top:-100px;
+}
+</style>
+</head>
+<body>
+<div>
+<section>
+<img src="img/0.jpg">
+<img src="img/1.jpg">
+</section>
+
+</div>
+<nav>
+<input type="button" value="上" class="t">
+<input type="button" value="下" class="b">
+<input type="button" value="左" class="l">
+<input type="button" value="右" class="r">
+</nav>
+<script src="mTween.js"></script>
+<script>	
+	var sec = document.getElementsByTagName('section')[0]	
+	var arr=["img/0.jpg","img/1.jpg","img/2.jpg"]
+	var imgs=document.getElementsByTagName('img');
+	var inputs=document.getElementsByTagName('input');
+	var i=1
+	inputs[0].onclick=fnT
+	inputs[1].onclick=fnB
+	inputs[2].onclick=fnL
+	inputs[3].onclick=fnR
+
+	document.onkeydown=function(e){
+		
+		if(e.keyCode==39){
+			fnR()
+		}
+		if(e.keyCode==37){
+			fnL()
+		}
+
+		if(e.keyCode==38){
+			fnT()
+		}
+		if(e.keyCode==40){
+			fnB()
+		}
+
+	}
+
+	function fnT(){
+			sec.style.left=0+"px"
+			sec.style.width=150+"px"
+			sec.style.height=450+"px"
+			sec.style.top=0+"px"
+			i++
+
+			imgs[0].src=arr[i-1]
+
+			if(i>2){
+				i=0
+			}
+						
+			imgs[1].src=arr[i]
+					
+			mTween(sec,{top:-150},400,"linear")
+	}
+	function fnL(){
+			sec.style.top=0+"px"
+			sec.style.width=450+"px"
+			sec.style.height=150+"px"
+			i++
+
+			imgs[0].src=arr[i-1]
+
+			if(i>2){
+				i=0
+			}
+						
+			imgs[1].src=arr[i]
+			sec.style.left=0+"px"			
+			mTween(sec,{left:-150},400,"linear")
+	}
+
+	function fnR(){
+			sec.style.top=0+"px"
+			sec.style.width=450+"px"
+			sec.style.height=150+"px"
+
+			i--
+			imgs[1].src=arr[i+1]
+			if(i<0){
+				i=2
+			}
+			imgs[0].src=arr[i]
+
+			sec.style.left=-150+"px"			
+			mTween(sec,{left:0},400,"linear")
+	}
+	function fnB(){
+			sec.style.left=0+"px"
+			sec.style.width=150+"px"
+			sec.style.height=450+"px"
+			sec.style.top=-150+"px"
+			i--
+			imgs[1].src=arr[i+1]
+			if(i<0){
+				i=2
+			}
+			imgs[0].src=arr[i]
+					
+			mTween(sec,{top:0},400,"linear")
+
+	}
+
+
+
+</script>
+
+</body>
+</html>

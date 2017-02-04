@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body{
+	margin:0;
+}
+div{
+	width:100px;
+	height:100px;
+	padding:30px;
+	text-align: center;
+	position: absolute;
+	left:0px;
+	top:0px;
+	
+}
+.op{
+	opacity: .4;
+	
+}
+.click{
+	background: #ccc;
+}
+.un{
+	background:none;
+}
+p{
+	margin:0;
+	width:100px;
+	height:100px;
+	background: yellow;
+	margin-bottom:10px;
+}
+span{
+	margin-bottom:10px;
+}
+</style>
+</head>
+<body> 
+<div id="div">
+	<p id="p"></p>
+	<span id="span">新建文件夹</span>
+</div>
+<script>
+	window.onload=function(){
+
+
+	var div = document.getElementById('div')
+	var p = document.getElementById('P')
+	var fspan = document.getElementById('span')
+	var m=0
+	var n=0
+
+	var k=0
+	div.onmousedown=function(){
+		
+		div.className="click"
+		var div1 = document.createElement("div")
+		var p1 = document.createElement("p")
+		var span = document.createElement("span")
+		div1.appendChild(p1)
+		span.innerHTML=fspan.innerHTML
+		div1.appendChild(span)
+		document.body.appendChild(div1)
+
+		console.log(document.body)
+		div1.style.left=div.style.left
+		div1.style.top=div.style.top
+		document.onmousemove=function(e){
+			div1.className="op"
+			k++
+			
+			
+			m = e.pageX
+			n = e.pageY
+			div1.style.left=m-div1.offsetWidth/2+"px"
+			console.log(div.style.left)
+			div1.style.top=n-div1.offsetHeight/2+"px"
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null
+			document.body.removeChild(div1)
+			div.style.left=m-div.offsetWidth/2+"px"
+			div.style.top=n-div.offsetHeight/2+"px"
+			if(k==0){
+				div.style.left=0+"px"
+				div.style.top=0+"px"
+			}
+			
+			
+		}
+	}
+	
+
+	
+	document.onclick=function(e){
+		var pt = div.getBoundingClientRect()
+
+		var x = e.pageX
+		var y = e.pageY
+		if(x<pt.left||x>pt.right||y<pt.top||y>pt.bottom){
+			div.className="un"
+		}
+
+	}
+
+
+	}
+</script>
+</body>  
+</html>  

@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+div{
+	width:400px;
+	margin:40px auto;
+}
+input{
+	margin:0;
+	padding:0;
+	outline:none;
+	width:400px;
+	height:45px;
+	font:20px/45px "宋体";
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+	border:1px solid #47aede;
+	width:402px;
+	border-top:none;
+	border-bottom:none;
+}
+li{
+	width:402px;
+	height:35px;
+	font:20px/35px "宋体";
+	background: #59d4c4;
+	border-bottom:1px solid #47aede;
+}
+.bg{
+	background:#4893d2;
+}
+.hover{
+	background:yellow;
+}
+</style>
+</head>
+<body>
+<div>
+<input type="text">
+<ul>
+	<li>《三国演义》</li>
+	<li>《水浒传》</li>
+	<li>《红楼梦》</li>
+	<li>《西游记》</li>
+	<li>《金瓶梅》</li>
+	<li>《桃花扇》</li>
+	<li>《西厢记》</li>
+	<li>《儒林外传》</li>
+	<li>《醒世恒言》</li>
+</ul>
+</div>
+<script>
+	var input=document.getElementsByTagName('input')[0];		
+	var ul=document.getElementsByTagName('ul')[0];
+	var lis=document.getElementsByTagName('li');
+	var ulp= ul.getBoundingClientRect()
+	var m=1
+	ul.style.display="block"
+	input.focus()
+	input.onfocus=function(){
+		ul.style.display="block"
+	}
+	document.onclick=function(e){
+		if(e.pageX < ulp.left || e.pageX > ulp.right || e.pageY < ulp.top-input.offsetHeight || e.pageY > ulp.bottom){		
+			ul.style.display="none"
+		}
+		
+	}
+	for(var i=0;i<lis.length;i++){		
+		var n=0
+		var x=0
+		lis[i].index=i
+		lis[i].onmouseover=function(){			
+			if(this.className!=="bg"){
+				this.className="hover"
+				m=this.index
+			}
+		}
+		lis[i].onmouseout=function(){
+			if(this.className!=="bg"){			
+				lis[m].className=""
+			}
+		}
+		lis[i].onclick=function(){			
+			if(x==0){
+				ul.style.display="none"					
+				one()
+			}else{
+				more()
+			}				
+		}
+	}	
+	document.onkeydown=function(e){		
+		if(e.keyCode==38 && ul.style.display=="block"){
+			m--
+			if(m<0){
+				m=lis.length-1
+			}
+			text()				
+		}
+		if(e.keyCode==40 && ul.style.display=="block"){
+			m++			
+			if(m>lis.length-1){
+				m=0
+			}
+			text()				
+		}
+		if(e.keyCode==13 && !e.ctrlKey && ul.style.display=="block"){			
+			one()
+		}
+		if(e.keyCode==13 && e.ctrlKey && ul.style.display=="block"){
+			more()
+		}
+		if(e.keyCode==17){
+			x=2							
+		}
+	}
+	document.onkeyup=function(e){
+				x=0
+	}
+	input.oninput=function(){
+		for(var i=0;i<lis.length;i++){
+			var str = lis[i].innerHTML
+			if(input.value.indexOf(str.slice(1,2))==-1){			
+			lis[i].className=""
+			}
+		}
+	}
+	function one(){
+			for(var i=0;i<lis.length;i++){
+				lis[i].className=""
+			}			
+			lis[m].className="bg"			
+			input.value=lis[m].innerHTML			
+	}
+	function more(){
+			lis[m].className="bg"
+			if(input.value.indexOf(lis[m].innerHTML.slice(2,5))==-1){
+				input.value+=lis[m].innerHTML
+			}		
+	}
+	function text(){
+		if(lis[m].className!=="bg"){				
+				for(var i=0;i<lis.length;i++){
+					if( lis[i].className!=="bg"){
+						lis[i].className=""
+					}
+				}
+				lis[m].className="hover"				
+		}
+	}
+</script>
+</body>
+</html>
