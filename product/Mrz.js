@@ -244,7 +244,7 @@ for(var i = 0; i < zlis.length; i++) {
 		if(this.index == 2) {
 			ballsf()
           	setTimeout(function(){
-          		window.open("作品.html","_self");
+          		window.open("zuopin.html","_self");
           	},6000)			
 		}
 	}
