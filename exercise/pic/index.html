@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+img{
+	vertical-align:top;
+	border:none;
+	width:150px;
+	height:100px;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index: 0;
+}
+ul{
+	width:640px;
+	height:220px;
+	border:5px solid blue;
+	padding-left:10px;
+	padding-top: 10px;
+	margin:60px auto;
+	position: relative;
+}
+li{
+	display: inline-block;
+	width:150px;
+	height:100px;
+	margin-right:10px;
+	margin-bottom:10px;
+	position: relative;
+	left:0;
+	top:0;
+	
+}
+input{
+	display:block;
+	margin:30px auto;
+	padding:0;
+	outline:none;
+	width:150px;
+	height:40px;
+
+}
+</style>
+</head>
+<body>
+<input type="button" value="随机排序">
+<ul>
+</ul>
+<script src="mTween.js"></script>
+<script>
+	var ul = document.getElementsByTagName('ul')[0];
+	var btn = document.getElementsByTagName('input')[0];
+	var lis = document.getElementsByTagName('li');
+	
+	for(var i=0;i<8;i++){
+		var li=document.createElement("li")
+		var img=document.createElement("img")
+		img.src="img/"+i+".jpg"
+		li.appendChild(img)
+		ul.appendChild(li)
+	}
+	var timer=0
+	function ran(){
+		var m=0
+		var t=0
+		var n=1
+		var b=0
+		var p=0
+		
+		for(var i=0;i<lis.length;i++){
+			 b++
+			 m = lis[i].clientLeft
+			 t = lis[i].clientTop			
+			 if(b>3){
+			 	n=-1
+			 }
+			
+			lis[i].style.left=Math.random()*200*n+"px"
+			lis[i].style.top=Math.random()*200*n+"px"
+			mTween(lis[i],{left:m,top:t},800,"backOut")
+		}
+	}
+	var imgs = document.getElementsByTagName('img');
+	var arr = [0,1,2,3,4,5,6,7]
+	btn.onclick=function(){
+		arr.sort(function(){
+			return 0.5-Math.random()
+		})
+		for(var i=0;i<imgs.length;i++){
+			imgs[i].src="img/"+arr[i]+".jpg"
+		}
+		ran()
+	}
+	
+	for(var i=0;i<imgs.length;i++){
+		imgs[i].index=i		
+		imgs[i].onmousedown=function(e){
+			var lis = document.getElementsByTagName('li')
+			var imgsk = document.getElementsByTagName('img');
+			var imgm = this.getBoundingClientRect()
+			var pp=1
+			var ii=0
+			var newl=0
+			var newt=0
+			var m = e.pageX;
+			var n = e.pageY;
+			var index = this.index
+			for(var i=0;i<imgs.length;i++){
+				imgsk[i].style.zIndex="1"
+			}
+			this.style.zIndex="2"
+			document.onmousemove=function(e){
+				var imgm = imgs[index].getBoundingClientRect()
+				e.preventDefault();
+				var x = e.pageX;
+				var y = e.pageY;
+
+				imgsk[index].style.left=x-m+"px"
+				imgsk[index].style.top=y-n+"px"
+				var thisL=imgm.left;
+				var thisR=imgm.right;
+				var thisT=imgm.top;
+				var thisB=imgm.bottom;
+
+				var l=0
+				for(var i=0;i<imgs.length;i++){
+					if(i == index){
+						
+					}else{
+						var imgn = imgs[i].getBoundingClientRect();
+						var newl = imgn.left
+						var newt = imgn.top
+						var pointX=imgn.left+imgn.width/2
+						var pointY=imgn.top+imgn.height/2					
+						if(thisR>pointX && pointX>thisL && thisB>pointY && pointY>thisT){
+							pp=2							
+							ii=i
+						}
+
+					}
+				}
+			}
+			document.onmouseup=function(e){
+				e.preventDefault();
+				document.onmousemove=document.onmouseup=null
+				if(pp==1){
+					imgsk[index].style.left=0+"px"
+					imgsk[index].style.top=0+"px"
+				}
+				else{
+					imgs[index].style.left=0+"px"
+					imgs[index].style.top=0+"px"
+					var ppp = imgsk[index].src
+						imgsk[index].src=imgsk[ii].src
+						imgsk[ii].src=ppp
+						
+				}
+
+			}
+		}
+
+	}
+	
+</script>
+</body>
+</html>

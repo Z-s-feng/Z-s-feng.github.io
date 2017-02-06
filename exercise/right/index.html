@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body{
+	margin:0;
+}
+p{
+	margin:0;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:200px;
+	padding:5px;
+	background: #ccc;
+	
+	position: absolute;
+	left: 0;
+	top:0;
+
+}
+li{
+	width:198px;
+	height:30px;
+	font:15px/30px "宋体";
+	border:1px solid #ccc;
+	text-indent: 40px;
+	position:relative;
+	
+
+}
+.bc{
+	background: url(tb.png) no-repeat 160px 15px;
+}
+.show{
+	border-color: blue;
+	background:green !important;
+
+}
+.hide{
+	border-color: #ccc;
+}
+#sec{
+	width:200px;
+	position: absolute;
+	left:0;
+	top:0;
+	position: relative;
+
+}
+span{
+	display: inline-block;
+	width:20px;
+	height:20px;
+	position: absolute;
+	right:0;
+	top:5px;
+
+}
+
+.div1{
+	width:200px;
+	font:15px/30px "宋体";
+	background: pink;	
+	text-indent: 40px;
+	position: absolute;
+	left:200px;
+	top:100px;
+}
+</style>
+
+</head>
+<body>
+<section id="sec"></section>
+<script>
+	var arrt = [
+			{
+				h2:"显示卡属性"
+			},{
+				h2:"查看",
+				ul:[
+					{h2:"大图标"},
+					{h2:"中等图标"},
+					{h2:"小图标"},
+					{h2:"自动排列图标"},
+					{h2:"将图标与网格对齐"},
+					{h2:"显示桌面图标"},
+					{h2:"显示桌面小工具"}
+				]
+			},
+			// {
+			// 	h2:""
+			// },
+			{
+				h2:"排序方式",
+				ul:[
+					{h2:"名称"},
+					{h2:"类型"},
+					{h2:"项目类型"},
+					{h2:"修改日期"}
+				
+				]
+			},{
+				h2:"刷新"
+			},
+			// {
+			// 	h2:""
+			// },
+			{
+				h2:"图形选项",
+				ul:[
+					{
+					  h2:"平面适应",
+					  ul:[
+						 	{ h2:"保持缩放比"}
+					     ]
+					},
+					{
+						h2:"快捷键",
+						ul:[
+						 	{ h2:"启用"},
+						 	{ h2:"禁用"}
+					     ]
+
+					},
+					{
+						h2:"系统托盘图标",
+						ul:[
+						 	{ h2:"启用"},
+						 	{ h2:"禁用"}
+					     ]
+
+					},
+					{
+						h2:"气球通知",
+						ul:[
+						 	{ 
+						 		h2:"图形属性通知",
+						 		ul:[
+								 	{ h2:"启用"},
+								 	{ h2:"禁用"}
+					     		]
+
+						 	},
+						 	{ 
+						 		h2:"最佳分别率通知",
+						 		ul:[
+								 	{ h2:"启用"},
+								 	{ h2:"禁用"}
+					     		]
+
+						 	}
+					     ]
+
+					},{
+						h2:"旋转",
+						ul:[
+							{h2:"旋转至正常"},
+							{h2:"旋转至90度"},
+							{h2:"旋转至180度"},
+							{h2:"旋转至270度"}
+						
+						]
+					}
+				
+				]
+			},{
+				h2:"个性化"
+			}
+
+		] 
+	document.oncontextmenu=function(e){
+		var sec = document.getElementById('sec');
+		var uls = document.getElementsByTagName('ul')
+		var lis = document.getElementsByTagName('li')
+		sec.style.display="block"
+		sec.style.left=e.pageX+"PX"
+		sec.style.top=e.pageY+"PX"
+
+		var inner=""
+		create(arrt)
+		sec.innerHTML=inner
+		function create(obj){
+			inner+="<ul>";
+			for(var i=0;i<obj.length;i++){
+				inner+="<li>"+obj[i].h2
+				if(obj[i].ul){
+					create(obj[i].ul)
+				}
+				inner+="</li>"
+			}
+			inner+="</ul>"
+		}
+
+		for(var i=1;i<uls.length;i++){
+			uls[i].style.position="absolute";
+			uls[i].style.left=190+"px";
+			uls[i].style.top=-5+"px"
+			uls[i].style.display="none"
+
+		}
+		for(var i=0;i<lis.length;i++){
+			if(lis[i].firstElementChild){
+				var spanm = document.createElement("span")
+				spanm.style.background="url(tb.png) no-repeat center left"
+				lis[i].appendChild(spanm)
+				// lis[i].style.background="url(tb.png) no-repeat 160px 10px"
+			}
+
+			lis[i].onmouseover=function(){
+				this.className="show"
+				// if(this.parentNode.parentNode){
+
+				// 	this.parentNode.parentNode="show"
+				// }
+				
+
+				if(this.firstElementChild){
+					
+					this.firstElementChild.style.display="block"
+				}
+				if(this.innerHTML=="刷新"){
+					this.onclick=function(){
+						window.location.reload()
+					}	
+				}
+			}
+
+			lis[i].onmouseout=function(){
+				this.className="hide"
+
+				if(this.firstElementChild){
+					this.firstElementChild.style.display="none"
+				}
+			}
+		}
+		return false
+	}
+	document.onclick=function(){
+		sec.style.display="none"
+
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,1114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script>
+!function() {
+	var scale = 1;
+	var ratio = window.devicePixelRatio;
+	scale = scale / window.devicePixelRatio;
+	var meta = document.createElement("meta");
+	meta.setAttribute("name","viewport");
+	meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+	document.head.appendChild(meta);
+}();
+</script>
+
+<title></title>
+<script>
+ fn();
+window.addEventListener("resize",fn);
+function fn() {
+	var html = document.querySelector("html");
+	var width = html.getBoundingClientRect().width;
+	html.style.fontSize = width/15 + "px"; 
+}
+</script>
+<style>
+body{
+	margin:0;
+}
+a{
+	text-decoration: none;
+}
+img{
+	text-decoration: none;
+	vertical-align: top;
+}
+input{
+	-webkit-appearance:none;
+	margin:0;
+	padding:0;
+	outline: none;
+
+}
+ul{
+	margin:0;
+	list-style:none;
+}
+p{
+	margin:0;
+}
+.wrap{
+	margin:0 auto;
+	margin-left:0.7rem;
+	position: relative;
+
+
+
+}
+
+#header{
+	width:100%;
+	height:2.2rem;
+	position:relative;
+	
+	position:fixed;
+	left:0rem;
+	top:0rem;
+	z-index:2;
+	
+}
+.scan{
+	display: inline-block;
+	width:0.59rem;
+	height:0.59rem;
+	background: url(img/jl.gif) no-repeat 0 0;
+	background-size:1.19rem 2.44rem; 
+	margin-left:.2rem; 
+	margin-top: .6rem;
+
+
+}
+
+.news{
+	margin-top: .5rem;
+	display: inline-block;
+	width:.81rem;
+	height:.7rem;
+	background: url(img/jl.gif) no-repeat 0 -0.69rem;
+	background-size:1.19rem 2.44rem;
+}
+.wrap p{
+	font:.33rem/.69rem "宋体";
+	color:#000;
+	margin-top:-0.2rem;
+}
+.left{
+	float:left;
+	margin-right: .6rem;
+}
+.right:{
+	float:left;
+
+}
+.center{
+	float:left;
+	margin-right:.6rem;
+	position: relative;
+	
+
+
+}
+
+
+	
+
+
+.text{
+	float:left;
+	width:8.8rem;
+	height:1.13rem;
+	border:none;
+	background: #fff;
+	margin-top:.4rem;
+
+	padding-left:1.2rem;
+	border-radius: 0.2rem;
+	
+	font:0.48rem/1.14rem "微软雅黑";
+	opacity: 0.7;
+
+}
+.bgl{
+	position: absolute;
+	top:.7rem;
+	left:.2rem;
+	display: block;
+	height:.53rem;
+	width:.54rem;
+	background: url(img/spirit.gif) no-repeat -13.7rem -28.04rem;
+	background-size: 15rem 122rem;
+}
+.bgr{
+	position: absolute;
+	top:.7rem;
+	left:9.2rem;
+	display: block;
+	height:.54rem;
+	width:.45rem;
+	background: url(img/spirit.gif) no-repeat -13.1rem -28.03rem;
+	background-size: 15rem 122rem;
+}
+@keyframes move1{
+	0%{
+		left:0;
+	}
+	50%{
+		left:-5;
+	}
+	100%{
+		left:-15rem;
+	}
+}
+
+#part1{
+
+	height:5rem;
+	
+	position: relative;
+	overflow: hidden;
+	
+
+}
+.wrapn{
+	float:left;
+	height:5rem;
+	width:30rem;
+	position: absolute;
+	left:0;
+	top:0;
+	animation:2s 0s move1  infinite;
+	
+}
+
+.wrap1{
+	float:left;
+	height:5rem;
+	width:15rem;
+	background: url(img/spirit.gif) no-repeat 0 0;
+	background-size: 15rem 122rem;
+	
+	
+
+}
+.wrap11{
+	float:left;
+	height:5rem;
+	width:15rem;
+	background: url(img/spirit.gif) no-repeat 0 0;
+	background-size: 15rem 122rem;
+	
+
+}
+
+
+.wrap2{
+	height:4.5rem;
+	width:15rem;
+	background: url(img/spirit.gif) no-repeat 0 -5.23rem;
+	background-size: 15rem 122rem;
+
+}
+.a1{
+	height:2.62rem;
+
+}
+.a1 li{
+	float:left;
+}
+
+#part3{
+	height:7.3rem;
+	background: #f3f3f3;
+	
+	padding-top:.3rem;
+}
+.wrap3{
+	
+	
+}
+.a11{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.33rem;
+	background: url(img/spirit.gif) no-repeat 0 -28.57rem;
+	background-size: 15rem 122rem;
+}
+.a1 p{
+	font:.51rem "微软雅黑";
+	margin-top:.25rem;
+
+}
+
+.li1{
+	margin-right:1.1rem;
+}
+.a12{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.1rem;
+	background: url(img/spirit.gif) no-repeat -1.38rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+
+.li2{
+	margin-right:1.4rem;
+}
+.a13{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.1rem;
+	background: url(img/spirit.gif) no-repeat -2.82rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+
+.li3{
+	margin-right:1.2rem;
+}
+.a14{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.33rem;
+	background: url(img/spirit.gif) no-repeat -4.25rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+
+.li4{
+	margin-right:1rem;
+}
+.a15{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.33rem;
+	background: url(img/spirit.gif) no-repeat -5.8rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+
+.a21{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.33rem;
+	background: url(img/spirit.gif) no-repeat -7.34rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+.a22{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.1rem;
+	background: url(img/spirit.gif) no-repeat -8.88rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+.a23{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.1rem;
+	background: url(img/spirit.gif) no-repeat -10.35rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+.a24{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.33rem;
+	background: url(img/spirit.gif) no-repeat -11.83rem -28.57rem;
+	background-size: 15rem 122rem;
+}
+.a25{
+	height:1.37rem;
+	width:1.35rem;
+	margin-left:.33rem;
+	background: url(img/spirit.gif) no-repeat 0 -28.57rem;
+	background-size: 15rem 122rem;
+}
+
+.a3{
+	height:1.45rem;
+	width:14.3rem;
+	background: #fff;
+	margin:.1rem auto;
+	border-radius: .18rem;
+	position: relative;
+	overflow: hidden;
+}
+.a31{
+	padding-left:.2rem;
+	float:left;
+}
+
+.a311{
+	font:bold .66rem/.68rem "宋体";
+}
+.a312{
+	font:bold .55rem/.68rem "微软雅黑";
+	padding:0 .2rem;
+	color:#fff;
+	background: #f02b2b;
+}
+.a313{
+	color:#999;
+}
+
+@keyframes move{
+	0%{
+		top:0;
+	}
+	100%{
+		top:-1.5rem;
+	}
+}
+
+
+
+
+
+.a32 a{
+	float:left;
+}
+
+.a32{
+	float:left;
+	font:.51rem/1.45rem "微软雅黑";
+	max-width:8.4rem;
+	
+	white-space: nowrap;
+	overflow: hidden;
+
+	text-overflow:ellipsis;
+	animation: 4s 2s move infinite;
+	position: absolute;
+	left: 3.5rem;
+	top: 0;
+}
+.a321{
+	color:#f15353;
+	padding:0 .2rem;
+}
+.a32 a{
+	color:#252525;
+}
+.a33{
+	float:right;
+	font:.51rem/.78rem "微软雅黑";
+	margin-top:.4rem;
+	margin-right: .5rem;
+	padding-left:.4rem;
+	border-left:.03rem solid #acacac;
+}
+.a33 a{
+	color:#252525;
+}
+#part4{
+	height:15.45rem;
+
+}
+
+.b1{
+	height:1.54rem;
+	position: relative;
+
+}
+.b11{
+	position: absolute;
+	top:.24rem;
+	left:.5rem;
+	height:.69rem;
+	width:2.57rem;
+	background: url(img/spirit.gif) no-repeat 0 -30rem;
+	background-size: 15rem 122rem;
+
+}
+.b15{
+	margin-left:3.5rem;
+	font:bold .6rem "黑体";
+	margin-right:.2rem;
+}
+.b12{
+	font:bold .6rem "黑体";
+	padding:0 .1rem;
+	border-left:.01rem solid #000;
+	border-top:.01rem solid #000;
+	border-right:.02rem solid #000;
+	border-bottom:.02rem solid #000;
+}
+.b1 a{
+	font:bold .6rem "宋体";
+	color:#f13737;
+}
+.b14{
+	position: absolute;
+	top:.45rem;
+	right:.5rem;
+	width:.46rem;
+	height:.53rem;
+	background: url(img/spirit.gif) no-repeat -2.65rem -30.02rem;
+	background-size: 15rem 122rem;
+}
+.b2{
+	height:4.63rem;
+	position: relative;
+	margin-top:.3rem;
+}
+.b21{
+	width:2.9rem;
+	float:left;
+	margin-right: .5rem;
+}
+.b211{
+	
+	display: block;
+	width:2.88rem;
+	height:2.84rem;
+	background: url(img/spirit.gif) no-repeat 0 -30.79rem;
+	background-size: 15rem 122rem;
+}
+
+.b212{
+	
+	font:.8rem "宋体";
+	color:#f02b2b;
+	text-align: center;
+	margin-top:.3rem;
+}
+
+.b213{
+
+	font:.61rem "宋体";
+	color:#ababab;
+	text-decoration:line-through;
+	text-align: center;
+
+}
+.b221{
+	
+	display: block;
+	width:2.88rem;
+	height:2.84rem;
+	background: url(img/spirit.gif) no-repeat -3.15rem -30.79rem;
+	background-size: 15rem 122rem;
+}
+
+.b231{
+	display: block;
+	width:2.88rem;
+	height:2.84rem;
+	background: url(img/spirit.gif) no-repeat -6.28rem -30.79rem;
+	background-size: 15rem 122rem;
+}
+.b241{
+	display: block;
+	width:2.87rem;
+	height:2.84rem;
+	background: url(img/spirit.gif) no-repeat -9.3rem -30.79rem;
+	background-size: 15rem 122rem;
+}
+.b3{
+	height:4.27rem;
+	border-top:.02rem solid #fafafa;
+	border-bottom:.02rem solid #fafafa;
+	margin-top:.5rem;
+
+}
+.b31{
+	float:left;
+	display: block;
+	width:7rem;
+	height:3.77rem;
+	margin-left:.5rem;
+	padding-top:.5rem;
+	position: relative;
+	border-right:.03rem solid #fafafa;
+}
+.b311{
+	font:.8rem "微软雅黑";
+	color:#31c9b9;
+}
+.b312{
+	font:bold .5rem/.5rem "微软雅黑";
+	color:#31c9b9;
+	padding:.01rem .2rem .06rem;
+	border:.04rem solid #05cdbc ;
+}
+.b313{
+	font:bold .5rem/.5rem "微软雅黑";
+	color:#fefff2;
+	padding:.04rem .2rem .1rem;
+	
+	background:#31c9b9; 
+}
+.b314{
+	position: absolute;
+	left:4rem;
+	top:.8rem;
+	display: block;
+	width:2.68rem;
+	height:3.24rem;
+	background:url(img/spirit.gif) no-repeat -12.39rem -30.44rem;
+	background-size: 15rem 122rem;
+}
+.b32{
+	float:left;
+	display: block;
+	
+	height:3.77rem;
+	margin-left:.5rem;
+	padding-top:.5rem;
+	position: relative;
+	
+}
+.b321{
+	font:.8rem "微软雅黑";
+	color:#31a4f3;
+}
+.b322{
+	font:bold .5rem/.5rem "微软雅黑";
+	color:#31a4f3;
+	padding:.01rem .2rem .06rem;
+	border:.04rem solid #31a4f3 ;
+}
+.b323{
+	font:bold .5rem/.5rem "微软雅黑";
+	color:#fefff2;
+	padding:.04rem .2rem .1rem;
+	
+	background:#31a4f3; 
+}
+.b324{
+	position: absolute;
+	left:4rem;
+	top:.8rem;
+	display: block;
+	width:2.2rem;
+	height:3.24rem;
+	background:url(img/spirit.gif) no-repeat 0rem -33.79rem;
+	background-size: 15rem 122rem;
+}
+
+.b4{
+	height:4.27rem;
+	border-top:.02rem solid #fafafa;
+	border-bottom:.02rem solid #fafafa;
+	
+
+}
+
+.b411{
+
+	font:.8rem "微软雅黑";
+	color:#000;
+
+}
+.b412{
+	font:bold .6rem/.8rem "微软雅黑";
+	color:#666;
+	
+}
+.b414{
+	position: absolute;
+	left:4rem;
+	top:.8rem;
+	display: block;
+	width:1.6rem;
+	height:3.24rem;
+	background:url(img/spirit.gif) no-repeat -2.32rem -33.97rem;
+	background-size: 15rem 122rem;
+}
+.b424{
+	position: absolute;
+	left:4rem;
+	top:.8rem;
+	display: block;
+	width:2.68rem;
+	height:3.24rem;
+	background:url(img/spirit.gif) no-repeat -4.1rem -33.74rem;
+	background-size: 15rem 122rem;
+}
+
+#part5{
+	height:1.57rem;
+	background: #f3f3f3;
+	font:.7rem/1.57rem "微软雅黑";
+	text-indent:6.7rem;
+	letter-spacing:.3rem;
+	color:#ff9845;
+}
+#part6{
+	height:13.45rem;
+
+}
+.c1{
+	height:4.27rem;
+	border-bottom:.02rem solid #f3f3f3;
+}
+.c11{
+	height:4.27rem;
+	width:7.2rem;
+	border-right:.02rem solid #f3f3f3;
+	
+	margin-left:.39rem;
+	position: relative;
+	float:left;
+}
+.c111{
+	font:bold .67rem "微软雅黑";
+	color:#181818;
+
+}
+.c112{
+	font:.55rem "微软雅黑";
+	color:#666;
+
+}
+.c113{
+	position: absolute;
+	top:.5rem;
+	left:4rem;
+	display: block;
+	width:2.29rem;
+	height:3.11rem;
+	background: url(img/spirit.gif) no-repeat -7.17rem -33.96rem;
+	background-size: 15rem 122rem;
+}
+.c12{
+	height:4.27rem;
+	margin-left:.39rem;
+	position: relative;
+	float:left;
+
+}
+.c123{
+	color:#fff;
+	font:.55rem "微软雅黑";
+	background: red;
+
+}
+.c124{
+	position: absolute;
+	top:.5rem;
+	left:4rem;
+	display: block;
+	width:2.29rem;
+	height:3.11rem;
+	background: url(img/spirit.gif) no-repeat -7.17rem -33.96rem;
+	background-size: 15rem 122rem;
+}
+.c21{
+	font:.55rem "微软雅黑";
+	color:#666;
+
+}
+.c23{
+	position: absolute;
+	top:.5rem;
+	left:4rem;
+	display: block;
+	width:2.29rem;
+	height:3.11rem;
+	background: url(img/spirit.gif) no-repeat -10.43rem -33.83rem;
+	background-size: 15rem 122rem;
+}
+.c3{
+	height:4.84rem;
+
+}
+.c31{
+	display:block;
+	float:left;
+	width:3.23rem;
+	height:4.84rem;
+	border-right:.02rem solid #f3f3f3;
+	margin-left:.5rem;
+}
+.c311{
+	font:bold .64rem/.7rem "宋体";
+	color:#000;
+	display: block;
+	margin-top:.3rem;
+
+}
+.c312{
+	
+	font:bold .44rem/.5rem "宋体";
+	color:#666;
+	display: block;
+	margin-top:.3rem;
+}
+
+.c313{
+	margin-left:-.4rem;
+	display: block;
+	width:3.77rem;
+	height:2.57rem;
+	background: url(img/spirit.gif) no-repeat 0 -37.21rem;
+	background-size: 15rem 122rem;
+}
+.c323{
+	margin-top:.4rem;
+	margin-left:-.41rem;
+	display: block;
+	width:3.77rem;
+	height:2.77rem;
+	background: url(img/spirit.gif) no-repeat -3.96rem -37.21rem;
+	background-size: 15rem 122rem;
+}
+.c333{
+	margin-left:-.2rem;
+	display: block;
+	width:3.77rem;
+	height:2.57rem;
+	background: url(img/spirit.gif) no-repeat -7.81rem -37.21rem;
+	background-size: 15rem 122rem;
+}
+
+.c343{
+	margin-top:.4rem;
+	margin-left:-.41rem;
+	display: block;
+	width:3.77rem;
+	height:2.77rem;
+	background: url(img/spirit.gif) no-repeat 0 -40.13rem;
+	background-size: 15rem 122rem;
+}
+
+	
+#part7{
+	height:1.83rem;
+	background: #fff;
+	padding:0 1.1rem;
+	border-top:.03rem solid #cbcbcb;
+	position: fixed;
+	left:0;
+	bottom: 0;
+	
+}
+.d1{
+	height:1.7rem;
+	float:left;
+	margin-right:2rem;
+
+}
+.d11{
+	margin-top:.4rem;
+	display: block;
+	width:.85rem;
+	height:.73rem;
+	background: url(img/spirit.gif) no-repeat 0 -57.62rem;
+	background-size: 15rem 122rem;
+
+}
+.d12{
+	display: block;
+	font:.35rem "宋体";
+	padding-top:.2rem;
+	color:red;
+
+}
+.d2{
+	height:1.7rem;
+	float:left;
+	
+
+}
+.d21{
+	margin-top:.4rem;
+	display: block;
+	width:.85rem;
+	height:.73rem;
+	background: url(img/spirit.gif) no-repeat -.95rem -57.62rem;
+	background-size: 15rem 122rem;
+
+}
+.d31{
+	margin-top:.2rem;
+	display: block;
+	width:1rem;
+	height:.86rem;
+	background: url(img/spirit.gif) no-repeat -1.93rem -57.62rem;
+	background-size: 15rem 122rem;
+
+}
+.d41{
+	margin-top:.4rem;
+	display: block;
+	width:.85rem;
+	height:.73rem;
+	background: url(img/spirit.gif) no-repeat -3.06rem -57.62rem;
+	background-size: 15rem 122rem;
+
+}
+.d51{
+	margin-top:.4rem;
+	display: block;
+	width:.85rem;
+	height:.73rem;
+	background: url(img/spirit.gif) no-repeat -4.05rem -57.62rem;
+	background-size: 15rem 122rem;
+
+}
+.d1:hover .d22{
+	color: red;
+}
+
+.d22{
+	display: block;
+	font:.35rem "宋体";
+	padding-top:.2rem;
+
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+<header id="header">
+	<div class="wrap">
+		<div class="left">
+			<a href="#" class="scan"></a>			
+			<p>扫啊扫</p>
+		</div>
+		<form action="#" class="center">
+			<a href="#" class="bgl"></a>
+			<a href="#" class="bgr"></a>
+			<input type="text" placeholder="七夕继续相爱,199减100" class="text"/>
+			
+		</form>
+		<div class="right">
+			<a href="#" class="news"></a>
+			<p>消息</p>
+		</div>
+	</div>
+</header>
+<section id="part1">
+	<div class="wrapn">
+		<div class="wrap1"></div>
+		<div class="wrap1"></div>
+		<div class="wrap1"></div>
+	</div>
+	
+</section>
+<section id="part2">
+	<div class="wrap2"></div>
+</section>
+<section id="part3">
+	<div class="wrap3">
+		<ul class="a1">
+			<li class="li1">
+				<div class="a11"></div>
+				<p>京东超市</p>
+			</li>
+			<li class="li2">
+				<div class="a12"></div>
+				<p>全球购</p>
+			</li>
+			<li class="li3">
+				<div class="a13"></div>
+				<p>服装城</p>
+			</li>
+			<li class="li4">
+				<div class="a14"></div>
+				<p>京东生鲜</p>
+			</li>
+			<li class="li5">
+				<div class="a15"></div>
+				<p>京东到家</p>
+			</li>
+		</ul>
+		<ul class="a1">
+			<li class="li1">
+				<div class="a21"></div>
+				<p>充值中心</p>
+			</li>
+			<li class="li2">
+				<div class="a22"></div>
+				<p>领京豆</p>
+			</li>
+			<li class="li3">
+				<div class="a23"></div>
+				<p>领京券</p>
+			</li>
+			<li class="li4">
+				<div class="a24"></div>
+				<p>京东金融</p>
+			</li>
+			<li class="li5">
+				<div class="a25"></div>
+				<p>京东到家</p>
+			</li>
+		</ul>
+		<div class="a3">
+			<div class="a31">
+				<span class="a311">京东</span><span class="a312">快报</span><span class="a313">:</span>
+
+			</div>
+			<div class="a32">
+				<a href="#">
+				<span class="a321">大促</span>金牌品质,狂欢京东,冠军京东,京东最棒
+				</a>
+				<a href="#">
+				<span class="a321">大促</span>金牌品质,狂欢京东,冠军京东,京东最棒
+				</a>
+
+			</div>
+			<div class="a33">
+				<a href="#">更多</a>
+			</div>
+		</div>
+
+	</div>
+</section>
+<section id="part4">
+	<header class="b1">
+		<span class="b11"></span>
+		<span class="b15">16点场</span><span class="b12">00</span>:<span class="b12">20</span>:<span class="b12">54</span>
+		<a href="#" class="b13">京选尖货轮番秒</a>
+		<span class="b14"></span>
+
+	</header>
+	<ul class="b2">
+		<li class="b21">
+			<a href="#" class="b211"></a>
+			<p class="b212">&yen99</p>
+			<p class="b213">&yen128</p>
+		</li>
+		<li class="b21">
+			<a href="#" class="b221"></a>
+			<p class="b212">&yen2299</p>
+			<p class="b213">&yen2399</p>
+		</li>
+		<li class="b21">
+			<a href="#" class="b231"></a>
+			<p class="b212">&yen25.8</p>
+			<p class="b213">&yen39</p>
+		</li>
+		<li class="b21">
+			<a href="#" class="b241"></a>
+			<p class="b212">&yen38.8</p>
+			<p class="b213">&yen55</p>
+		</li>
+	</ul>
+	<div class="b3">
+		
+			<a href="#" class="b31">
+				<span class="b311">发现好货</br></span>
+				<span class="b312">开启</span><span class="b313">品质生活</span>
+				<span class="b314"></span>
+			</a>
+		
+			<a href="#" class="b32">
+				<span class="b321">店铺头条</br></span>
+				<span class="b322">上京东</span><span class="b323">逛好店</span>
+				<span class="b324"></span>
+			</a>
+	</div>
+	<div class="b4">
+		
+			<a href="#" class="b31">
+				<span class="b411">排行榜</br></span>
+				<span class="b412">人气TOP5</span>
+				<span class="b414"></span>
+			</a>
+		
+			<a href="#" class="b32">
+				<span class="b411">闪购</br></span>
+				<span class="b412">安踏低至5折</span>
+				<span class="b424"></span>
+			</a>
+	</div>
+
+</section>
+<section id="part5">爱生活
+</section>
+<section id="part6">
+	<div class="c1">
+		<a href="#" class="c11">
+			<span class="c111">玩3C</br></span>
+			<span class="c112">iPhone惊喜价</span>
+			<span class="c113"></span>
+		</a>
+		<a href="#" class="c12">
+			<span class="c111">京东手机</br></span>
+			<span class="c112">买一送一</br></span>
+
+			<span class="c123">低至五折</span>
+			<span class="c124"></span>
+		</a>
+	</div>
+	<div class="c1">
+		<a href="#" class="c11">
+			<span class="c111">京东超市</br></span>
+			<span class="c112">七夕惠在一起</br></span>
+			<span class="c123">约会花点心思</span>
+			<span class="c23"></span>
+		</a>
+		<a href="#" class="c12">
+			
+			<span class="c111">爱家</br></span>
+			<span class="c21">居家囤货3件6折</span>
+			
+			
+			<span class="c23"></span>
+		</a>
+	</div>
+	<div class="c3">
+		<a href="#" class="c31">
+			<span class="c311">爱宝宝</span>
+			<span class="c312">奶爸盛典开幕</span>
+			<span class="c313"></span>
+		</a>
+		<a href="#" class="c31">
+			<span class="c311">爱美丽</span>
+			<span class="c312">line两件八折</span>
+			<span class="c323"></span>
+		</a>
+		<a href="#" class="c31">
+			<span class="c311">爱吃</span>
+			<span class="c312">七夕甜蜜礼盒</span>
+			<span class="c333"></span>
+		</a>
+		<a href="#" class="c31">
+			<span class="c311">爱逛</span>
+			<span class="c312">奢品满770-70</span>
+			<span class="c343"></span>
+		</a>
+
+
+
+
+	</div>
+</section>
+
+<section id="part7">
+	<div >
+		<a href="#" class="d1">
+			<span class="d11"></span>
+			<span class="d12">首页</span>
+		</a>
+		<a href="#" class="d1">
+			<span class="d21"></span>
+			<span class="d22">分类</span>
+		</a>
+		<a href="#" class="d1">
+			<span class="d31"></span>
+			<span class="d22">发现</span>
+		</a>
+		<a href="#" class="d1">
+			<span class="d41"></span>
+			<span class="d22">购物车</span>
+		</a>
+		<a href="#" class="d2">
+			<span class="d51"></span>
+			<span class="d22">我的</span>
+		</a>
+	</div>
+</section>
+
+
+
+
+</body>
+
+
+</html>

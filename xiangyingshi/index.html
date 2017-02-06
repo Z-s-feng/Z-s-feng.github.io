@@ -1,0 +1,771 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no"/>
+<title></title>
+<script>
+fn();
+window.addEventListener("resize",fn);
+function fn(){
+	var html= document.querySelector("html");
+	var width= html.getBoundingClientRect().width;
+	html.style.fontSize= width/15 +"px";
+}
+</script>
+<style>
+body{
+	margin:0;
+
+}
+a{
+	text-decoration:none;
+}
+p{
+	margin:0;
+}
+h3,
+h4,
+h5{
+	margin:0;
+}
+input{
+	margin:0;
+	padding:0;
+	outline:none;
+}
+
+
+
+@keyframes move{
+	0%{
+		background: red;
+	}
+	30%{
+		background: green;
+	}
+	60%{
+		background: pink;
+	}
+	100%{
+		background: blue;
+	}
+}
+.navh{
+	width:269px;
+	height:100px;
+	font:13px/37px "Arial";
+	display: none;
+}
+.navh1 div{
+	width:128px;
+	border-top:1px solid #fff;
+}
+.navh2 div{
+	width:128px;
+	border-top:1px solid #fff;
+}
+.navh1{
+	float:left;
+	margin-right:10px;
+} 
+.navh2{
+	float:left;
+} 
+
+
+#header{
+	height:50px;
+	background: red;
+	animation: 18s 2s move infinite;
+}
+.navsub{
+	width:755px;
+	margin:0 auto;
+	height:42px;
+	padding-top:8px;
+}
+.logo{
+	float:left;
+	width:30px;
+	height:31px;
+	background: url(img/spirit.png) no-repeat 0 0;
+	margin-right:20px;
+
+}
+.nav{
+	float:left;
+	font:11px/40px "arial";
+
+}
+.nav a{
+	margin-right:15px;
+	color:#fff;
+}
+.nav div{
+	float:right;
+	position: relative;
+}
+.navmix{
+	display: block;
+	background:pink;
+	
+	position: absolute;
+	left:10px;
+	top:30px;
+	border-radius: 10px;
+	height:0;
+	overflow: hidden;
+	transition:1s;
+}
+.navmix a{
+	display: block;
+	color:#000;
+	padding-left:13px;
+}
+.navmix a:hover{
+	color:#15a346;
+}
+.nav div:hover .navmix{
+	height:160px;
+}
+.submit{
+	float:right;
+	font:11px/40px "arial";
+	margin-right:8px;
+	position: relative;
+}
+.submit a{
+	color:#fff;
+	margin:0 8px;
+
+}
+.span1{
+	color:#fff;
+	height:20px;
+}
+.submit p{
+	position: absolute;
+	top:15px;
+	left:107px;
+	height:11px;
+	width:8px;
+	background: url(img/spirit.png) no-repeat -1px -35px;
+}
+.san{
+		display: none;
+	}
+
+#section1{
+	height:59px;
+
+}
+.wrap{
+	width:752px;
+	margin:0 auto;
+	font:11px/40px "arial";
+
+}
+.a1{
+	font:bold 14px/40px "arial";
+	margin:0 190px 0 206px;
+	color:#000;
+
+}
+#section2{
+	height:366px;
+	
+	margin:0 auto;
+	background: url(img/bg.png) no-repeat 0 0;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+	background-size: 100% 100%;
+}
+#section3{
+	height:737px;
+	padding-top:60px; 
+
+}
+.wrap3{
+	width:755px;
+	margin: 0 auto;
+}
+
+.wrap3 h3{
+	font:11px/15px "arial";
+}
+.wrap3 h4{
+	font:13px/30px "arial";
+
+}
+.wrap3 h3 a{
+	color:#405eff;
+}
+.wrap3 h4 a{
+	color:#272425;
+}
+.b1{
+	width:370px;
+	height:222px;
+	border-top:1px solid #ff0043;
+	padding-top:12px;
+	float:left;
+	margin-right: 12px;
+}
+
+.b1left{
+	float:left;
+	width:104px;
+	height:140px;
+	background: url(img/thumb.png) no-repeat 0 0;
+	background-size: 100% 100%;
+	margin-right:13px;
+}
+
+.b1right p{
+	font:10px "arial"; 
+	color:#968888;
+}
+.b1right p a{
+	color:#968888;
+}
+
+.b2{
+	width:370px;
+	height:222px;
+	border-top:1px solid #405eff;
+	padding-top:12px;
+	float:left;
+}
+.b3{
+	width:370px;
+	height:222px;
+	border-top:1px solid #ff0043;
+	padding-top:12px;
+	float:left;
+	margin-right: 12px;
+}
+.b4{
+	width:370px;
+	height:222px;
+	border-top:1px solid #9300ff;
+	padding-top:12px;
+	float:left;
+}
+.b5{
+	width:370px;
+	height:222px;
+	border-top:1px solid #405eff;
+	padding-top:12px;
+	float:left;
+	margin-right: 12px;
+}
+.b6{
+	width:370px;
+	height:222px;
+	border-top:1px solid #dc9a11;
+	padding-top:12px;
+	float:left;
+}
+
+.b2left{
+	float:left;
+	width:104px;
+	height:140px;
+	background: url(img/women.png) no-repeat 0 0;
+	background-size: 100% 100%;
+	margin-right:13px;
+}
+.b3left{
+	float:left;
+	width:104px;
+	height:140px;
+	background: url(img/thumb2.png) no-repeat 0 0;
+	background-size: 100% 100%;
+	margin-right:13px;
+}
+
+.b5left{
+	float:left;
+	width:104px;
+	height:140px;
+	background: url(img/thumb1.png) no-repeat 0 0;
+	background-size: 100% 100%;
+	margin-right:13px;
+}
+.b6left{
+	float:left;
+	width:104px;
+	height:140px;
+	background: url(img/thumb3.png) no-repeat 0 0;
+	background-size: 100% 100%;
+	margin-right:13px;
+}
+
+#section4{
+	height:348px;
+	background: #272425;
+}
+.wrap4{
+	margin:0 auto;
+	width:755px;
+}
+.c11{
+	display: block;
+	position: absolute;
+	height:38px;
+	width:38px;
+	background:url(img/logo.png) no-repeat 0 0; 
+	top:34px;
+}
+.c1{
+	font:bold 25px/100px "Arial";
+	position: relative;
+}
+.c12{
+	margin-left:56px;
+	
+	color:#fff;
+}
+
+.c21{
+	font:12px/16px "Arial";
+	height:254px;
+	width:370px;
+	border-top:1px solid #423c3e;
+	float:left;
+	margin-right:13px;
+
+}
+.c21 a{
+	color:#fff;
+	display: block;
+}
+.c21 a:hover{
+	color:#aaaa8c;
+}
+h5{
+	font-weight: bold;
+	margin-top:25px;
+	margin-bottom:10px;
+}
+
+.c211{
+	float:left;
+	margin-right:106px;
+}
+.c212{
+	float:left;
+}
+
+.c22{
+	float:left;
+	font:12px/16px "Arial";
+	height:254px;
+	width:242px;
+	border-top:1px solid #423c3e;
+	margin-right:13px; 
+
+}
+
+.c22 h5 a{
+	color:#fff;
+}
+.c22 p{
+	color:#aaa;
+}
+.c221{
+	margin-bottom: 18px;
+}
+.c222{
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+.text{
+	display: block;
+	border:none;
+	height:41px;
+	width:242px;
+	background: #444;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	font:20px/41px "Arial";
+	text-indent: 10px;
+}
+.submit1{
+	
+	border:none;
+	height:37px;
+	width:242px;
+	background: #666;
+	border-radius:5px;
+	
+}
+.submit1:hover{
+	background: #2ea7e0;
+}
+.c23{
+	font:12px/16px "Arial";
+	height:254px;
+	width:115px;
+	border-top:1px solid #423c3e;
+	float:left;
+	
+
+}
+.c23 h5{
+	color:#fff;
+}
+.c23 a{
+	color:#fff;
+	display: block;
+}
+.c23 a:hover{
+	color:#aaaa8c;
+}
+#section5{
+	height:54px;
+	background: #000;
+	font:12px/54px "Arial";
+}
+.wrap5{
+	width: 760px;
+	margin:0 auto;
+}
+#section5 a{
+	color:#b3b3b3;
+	margin-left:10px;
+	
+}
+#section5 a:hover{
+	color: #2ea7e0;
+}
+
+
+
+
+
+@media all and (max-width:770px){
+	#header{
+
+		height:43px;
+		
+	}
+	.navsub{
+		width:620px;
+		margin:0 auto;
+	}
+	.san{
+		display: none;
+	}
+	
+.wrap{
+	width:200px;
+	margin:0 auto;
+	font:11px/40px "arial";}
+
+#section1{
+	height:126px;}
+.wrap span{
+	display: block;
+	text-align: center;
+
+	
+}
+.a1{
+	font:bold 14px/40px "arial";
+	margin:0 auto;
+	color:#000;
+
+}
+.a2{
+	text-align: -20px;
+}
+#section2{
+	height:319px;
+}
+#section3{
+	height:1408px;
+}
+.wrap3>div:nth-of-type(n) {
+	float:none;
+}
+.wrap3{
+	margin:0 auto;
+	width:350px;
+}
+#section4{
+	height:800px;
+}
+.c1{
+	display: none;
+}
+.c21{
+	float:none;
+	margin-right: none;
+}
+.c22{
+	float:none;
+}
+.c23{
+	float:none;
+	width:273px;
+}
+.wrap4{
+	width:300px;
+}
+.c23 a{
+	
+	display: inline-block;
+	margin-right: 7px;
+}
+
+
+
+
+}
+@media all and (max-width:620px){
+	#header{
+
+		height:53px;
+		
+	}
+	.navsub{
+		width:415px;
+		margin:0 auto;
+	}
+	.submit{
+		float:left;
+		margin-right:-8px;
+	}
+	.submit p{
+		height:0;
+		overflow: hidden;
+	}
+	 .span1 {
+		display: none;
+	}
+	.san{
+		display: none;
+	}
+
+
+
+}
+@media all and (max-width:350px){
+	#header{
+
+		height:53px;
+		
+	}
+
+	.navsub{
+		width:280px;
+		margin:0 auto;
+	}
+
+	.nav{
+		display: none;
+	}
+	.submit{
+		display: none;	
+	}
+	.san{
+		display: block;
+		font:20px/33px "宋体";
+		position: absolute;
+		right:5px;
+		color:#fff;
+	}
+}
+
+
+
+
+</style>
+</head>
+<body>
+<header id="header">
+	<nav class="navsub">
+		<div class="logo"></div>
+		<div class="nav">
+			<a href="#">The Joumal</a>
+			<a href="#">Festival</a>
+			<div>
+				<a href="#">About</a>
+				<nav class="navmix">
+					<a href="#">Mission</a>
+					<a href="#">Ledership</a>
+					<a href="#">Patrons</a>
+					<a href="#">Contact</a>
+				</nav>
+			</div>
+		</div>
+		<div class="submit">
+			<a href="#">Blog</a>
+			<span class="span1">|</span> 
+			<a href="#">Sign In</a>
+			<p></p>
+		</div>
+		<a href="#" class="san">三</a>
+		<nav class="navh">
+			<div class="navh1">
+				<div><a href="#">The Joumal</a></div>
+				<div><a href="#">Festival</a></div>
+				<div><a href="#">About</a></div>
+			</div>
+			<div class="navh2">
+				<div><a href="#">Blog</a></div>
+				<div><a href="#">Sign In</a></div>
+			</div>
+		</nav>
+	</nav>
+	
+
+</header>
+<section id="section1">
+	<div class="wrap">
+		<span class="a2">ISSUE #01 DATA</span>
+		<span class="a1">THE JOURNAL</span>
+		<span>Monthly Design Dispatches</span>
+
+	</div>
+
+
+</section>
+<section id="section2">
+</section>
+
+
+
+
+
+<section id="section3">
+	<div class="wrap3">
+		<div class="b1">
+			<div class="b1left"></div>
+			<div class="b1right">
+				<h3><a href="#">read</a></h3>
+				<h4><a href="#">Letter Form the Editor</a></h4>
+				<p><a href="#">As the newest installment of DWP, which has grown and evolved its design-centered geography within the city of Portland over the last four years, the journal has one foot rooted in the ideas that took shape</a> </p>
+			</div>
+		</div>
+		<div class="b2">
+			<div class="b2left"></div>
+			<div class="b1right">
+				<h3><a href="#">read</a></h3>
+				<h4><a href="#">Letter Form the Editor</a></h4>
+				<p><a href="#">As the newest installment of DWP, which has grown and evolved its design-centered geography within the city of Portland over the last four years, the journal has one foot rooted in the ideas that took shape</a> </p>
+			</div>
+		</div>
+		<div class="b3">
+			<div class="b3left"></div>
+			<div class="b1right">
+				<div class="b1right">
+				<h3><a href="#">read</a></h3>
+				<h4><a href="#">Letter Form the Editor</a></h4>
+				<p><a href="#">As the newest installment of DWP, which has grown and evolved its design-centered geography within the city of Portland over the last four years, the journal has one foot rooted in the ideas that took shape</a> </p>
+			</div>
+			</div>
+		</div>
+		<div class="b4">
+			<div class="b4left"></div>
+			<div class="b1right">
+				<h3><a href="#">read</a></h3>
+				<h4><a href="#">Letter Form the Editor</a></h4>
+				<p><a href="#">As the newest installment of DWP, which has grown and evolved its design-centered geography within the city of Portland over the last four years, the journal has one foot rooted in the ideas that took shape</a> </p>
+			</div>
+		</div>
+		<div class="b5">
+			<div class="b5left"></div>
+			<div class="b1right">
+				<h3><a href="#">read</a></h3>
+				<h4><a href="#">Letter Form the Editor</a></h4>
+				<p><a href="#">As the newest installment of DWP, which has grown and evolved its design-centered geography within the city of Portland over the last four years, the journal has one foot rooted in the ideas that took shape</a> </p>
+			</div>
+		</div>
+		<div class="b6">
+			<div class="b6left"></div>
+			<div class="b1right">
+				<h3><a href="#">read</a></h3>
+				<h4><a href="#">Letter Form the Editor</a></h4>
+				<p><a href="#">As the newest installment of DWP, which has grown and evolved its design-centered geography within the city of Portland over the last four years, the journal has one foot rooted in the ideas that took shape</a> </p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="section4">
+	<div class="wrap4">
+		<div class="c1">
+			<span class="c11"></span>
+			<span class="c12">This is about all of us. Together</span>
+		</div>
+		<div class="c2">
+			<div class="c21">
+				<div class="c211">
+					<h5><a href="#">PATRONS</a></h5>
+					<a href="#">MailChimp</a>
+					<a href="#">Media Temple</a>
+					<a href="#">Nike</a>
+					<a href="#">RACC</a>
+					<a href="#">Travel Portland</a>
+					<a href="#">Wacom</a>
+					<h5><a href="#">CREDITS</a></h5>
+					<a href="#">Team</a>
+					<a href="#">Collaborators</a>								
+				</div>
+				<div class="c212">
+					<h5><a href="#">PARTNERS</a></h5>
+					<a href="#">Portland Monthly</a>
+					<a href="#">Gray</a>
+					<a href="#">Oregonian/OregonLive</a>
+					<a href="#">Architect’s Newspaper</a>
+					<a href="#">IKEA® Portland</a>
+					<a href="#">IDS West</a>
+					<a href="#">TO DO</a>
+					<a href="#">Wanted Design</a>
+					<a href="#">XRAY.fm</a>							
+				</div>
+
+			</div>
+			<div class="c22">
+				<h5><a href="#">NEWSLETTER</a></h5>
+				<p class="c221">Sign up for a daily digest during DWP and important updates throughout the year.</p>
+				<p class="c222">Email Address *</p>
+				<form>
+					<input type="text" class="text"/>
+					<input type="submit" class="submit1" value=""/>
+				</form>
+
+			</div>
+			<div class="c23">
+					<h5>ELSEWHERE</h5>
+					<a href="#">Twitter</a>
+					<a href="#">Switchboard</a>
+					<a href="#">Tumblr</a>
+					<a href="#">Instagram</a>
+					<a href="#">Vimeo</a>
+					<a href="#">Facebook</a>
+					
+			</div>
+		</div>
+
+
+	</div>
+</section>
+
+<section id="section5">
+	<div class="wrap5">
+		<img src="img/flash.gif"/>
+		<a href="#">Show your Portland Pride and get the website badge!</a>
+	</div>
+</section>
+
+
+
+
+</body>
+
+
+
+</html>

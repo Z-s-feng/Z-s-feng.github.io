@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+#box{
+	margin:30px auto;
+	width:600px;
+	height:100px;
+	border:1px solid gray;
+}
+p{	
+	margin:0;
+	font:20px/100px "微软雅黑";
+	margin-left:20px;
+	float:left;
+	margin-right:20px;
+
+
+}
+div{
+	height:50px;
+	width:50px;
+	margin-right:10px;
+	float:left;
+	border: 1px solid #000;
+	margin-top:25px;
+
+
+}
+span{
+	font:20px/100px "微软雅黑";
+	margin-left:30px;
+	display:none;
+}
+.bg{
+	background: red;
+}
+</style>
+<script>
+		window.onload=function(){
+			var divs=document.getElementsByTagName('div');
+			var span=document.getElementsByTagName('span');	
+			var num=-1;
+
+				for(var i=0;i<5;i++){
+					divs[i].index=i
+				
+					divs[i].onmouseover=function(){
+					   for(var i=0;i<5;i++){
+							divs[i].style.background = "";
+						}
+						
+						for(var i=0;i<=this.index;i++){
+							divs[i].style.background = "red";
+							if(this.index<2){
+								divs[i].style.background = "#666";
+							}
+							
+
+						}
+						for(var i=0;i<5;i++){
+							span[i].style.display="none";
+							}
+							span[this.index].style.display="block";
+
+				
+					}
+				
+					divs[i].onclick=function(){
+						num=this.index;
+
+						/*for(var i=0;i<5;i++){
+							divs[i].style.background = "";
+						}
+						
+						for(var i=0;i<this.index;i++){
+							divs[i].style.background = "red";
+
+						}
+						
+						this.style.background = "red";*/
+						
+					}
+					
+					divs[i].onmouseout=function(){
+							
+						if(num<0){
+							for(var i=0;i<=this.index;i++){
+								divs[i].style.background = "";
+								span[i].style.display="none";
+							}
+						}
+						for(var i=0;i<5;i++){
+							divs[i].style.background = "";
+						}
+						
+						for(var i=0;i<=num;i++){
+							divs[i].style.background = "red";
+							if(num<2){
+								divs[i].style.background = "#666";
+							}
+							
+
+						}
+
+
+					
+					}
+					
+				}
+
+
+
+
+
+
+		}
+
+
+
+</script>
+
+</head>
+<body>
+<section id="box">
+<p>总体评价</p>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<span>辣鸡</span>
+<span>弱鸡</span>
+<span>还行</span>
+<span>推荐</span>
+<span>力荐</span>
+</section>
+</body>
+
+</html>

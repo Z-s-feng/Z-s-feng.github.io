@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+section{
+	width:700px;
+	height:450px;
+	margin:50px auto;
+	border:3px solid blue;
+	position: relative;
+}
+img{
+	position: absolute;
+	width:600px;
+	height:400px;
+	right:0;
+	top:0;
+}
+#span1{	
+	position: absolute;
+	width:96px;
+	height:108px;
+	border: 2px solid pink;
+	background: black;
+	top:0;
+	left:0;
+	color:#fff;
+	font:30px/98px "宋体";
+	text-align: center;
+}
+#span2{	
+	position: absolute;
+	width:96px;
+	height:108px;
+	border: 2px solid pink;
+	background: black;
+	top:113px;
+	left:0;
+	color:#fff;
+	font:30px/98px "宋体";
+	text-align: center;
+}
+#span3{	
+	position: absolute;
+	width:96px;
+	height:108px;
+	border: 2px solid pink;
+	background: black;
+	top:226px;
+	left:0;
+	color:#fff;
+	font:30px/98px "宋体";
+	text-align: center;
+}
+#span4{	
+	position: absolute;
+	width:96px;
+	height:108px;
+	border: 2px solid pink;
+	border-bottom:none;
+	background: black;
+	top:339px;
+	left:0;
+	color:#fff;
+	font:30px/98px "宋体";
+	text-align: center;
+}
+
+#span5{
+	position: absolute;
+	width:298px;
+	height:48px;
+	background: black;
+	font:20px/48px;
+	left:100px;
+	bottom:0px;
+	color:#fff;
+	font:30px/48px "宋体";
+	text-align: center;
+
+}
+#span7{
+	position: absolute;
+	width:150px;
+	height:48px;
+	background: black;
+	font:20px/48px;
+	left:100px;
+	bottom:0px;
+	color:#fff;
+	font:30px/48px "宋体";
+	text-align: center;
+
+}
+#span8{
+	position: absolute;
+	width:150px;
+	height:48px;
+	background: black;
+	font:20px/48px;
+	left:250px;
+	bottom:0px;
+	color:#fff;
+	font:30px/48px "宋体";
+	text-align: center;
+
+}
+#span9{
+	position: absolute;
+	width:150px;
+	height:48px;
+	background: black;
+	font:20px/48px;
+	left:400px;
+	bottom:0px;
+	color:#fff;
+	font:30px/48px "宋体";
+	text-align: center;
+
+}
+#span10{
+	position: absolute;
+	width:150px;
+	height:48px;
+	background: black;
+	font:20px/48px;
+	left:550px;
+	bottom:0px;
+	color:#fff;
+	font:30px/48px "宋体";
+	text-align: center;
+
+}
+#span6{
+	position: absolute;
+	width:298px;
+	height:48px;
+	background: black;
+	font:20px/48px;
+	left:400px;
+	bottom:0px;
+	color:#fff;
+	font:30px/48px "宋体";
+	text-align: center;
+
+}
+
+</style>
+<script>
+	window.onload=function(){
+		var divs=document.getElementsByTagName('div')
+		var nav=document.getElementsByTagName('nav')
+		var spans1=nav[0].getElementsByTagName('span')
+		for(var i=0;i<divs.length;i++){
+			
+
+			spans1[i].index=i
+			spans1[i].onclick=function(){
+			
+				for(var i=0;i<divs.length;i++){
+					divs[i].style.display="none";
+					spans1[i].style.background="black"
+				}
+
+				divs[this.index].style.display="block"
+				this.style.background="red"
+				
+			}
+
+		}
+
+
+
+
+		for(var i=0;i<divs.length;i++){
+			fn1(i) //传参 调用函数fn1
+		}
+
+		function fn1(index){
+
+			var spans=divs[index].getElementsByTagName('span')
+			var imgs=divs[index].getElementsByTagName('img')
+
+			for(var i=0;i<spans.length;i++){	//循环底部的选项卡
+				spans[i].index=i
+				console.log(spans.length)
+				spans[i].onclick=function(){
+					for(var i=0;i<spans.length;i++){
+						imgs[i].style.display="none"	//所有的图片隐藏
+					}
+					
+					imgs[this.index].style.display="block"//当前图片点击显示
+					for(var i=0;i<spans.length;i++){
+						spans[i].style.background="black"	//底部选项卡的背景色都为黑
+					}
+					this.style.background="red"	//当前选项卡的背景色都为红
+				}
+
+
+			}
+				// spans[0].onclick=function(){
+				// 	imgs[1].style.display="none"
+				// 	imgs[0].style.display="block"
+				// 	for(var i=0;i<spans.length;i++){
+				// 		spans[i].style.background="black"
+				// 	}
+				// 	this.style.background="red"
+				// }
+				// spans[1].onclick=function(){
+				// 	imgs[0].style.display="none"
+				// 	imgs[1].style.display="block"
+				// 	for(var i=0;i<spans.length;i++){
+				// 		spans[i].style.background="black"
+				// 	}
+				// 	this.style.background="red"
+
+				// }
+
+
+		}
+
+	
+	}
+
+
+</script>
+
+
+
+</head>
+<body>
+<section>
+<nav id=navs>
+<span id="span1">一</span>
+<span id="span2">二</span>
+<span id="span3">三</span>
+<span id="span4">四</span>
+</nav>
+<div>
+	<img src="images/img1.gif" class="show">
+	<img src="images/img2.gif">
+	<span id="span5">选项一</span>
+	<span id="span6">选项二</span>
+</div>
+<div>
+	<img src="images/img3.gif">
+	<img src="images/img4.gif">
+	<span id="span5">选项一</span>
+	<span id="span6">选项二</span>
+</div>
+<div>
+	<img src="images/img5.gif">
+	<img src="images/img6.gif">
+	<img src="images/img9.gif">
+	<img src="images/img10.gif">
+	<span id="span7">选项一</span>
+	<span id="span8">选项二</span>
+	<span id="span9">选项三</span>
+	<span id="span10">选项四</span>
+</div>
+<div>
+	<img src="images/img7.gif">
+	<img src="images/img8.gif">
+	<span id="span5">选项一</span>
+	<span id="span6">选项二</span>
+</div>
+
+
+</section>
+
+</body>
+</html>

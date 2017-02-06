@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<style>
+body{
+	background: black;
+}
+section{
+	width:660px;
+	height:750px;
+	background: #ccc;
+	margin:30px auto;
+	text-align: center;
+}
+input{
+	margin:20px;
+	width:150px;
+	height:40px;
+}
+nav{
+	height:600px;
+	padding:50px;
+	background:rgba(0,0,0,.6);
+
+}
+div{
+	width:60px;
+	height:60px;
+	background: pink;
+	float:left;
+	border:1px solid #000;
+	font:20px/50px "微软雅黑";
+}
+.cm{
+	margin-right:60px;
+}
+.mm{
+	width:246px;
+	margin-right:60px;
+}
+.qq{
+	width:246px;
+	
+}
+</style>
+
+<script>
+	window.onload=function(){
+		var nav=document.getElementsByTagName('nav')[0];
+		var divs=document.getElementsByTagName('div');
+		var input=document.getElementsByTagName('input')[0];
+		var timer=0
+		for(var i=1;i<67;i++){	
+				nav.innerHTML+="<div>"+i+"</div>"		//在nav中生成66个div		
+		};	
+		for(var i=0;i<8;i++){						
+			
+			divs[i*8+3].className="cm"		//从第三个div开始，每隔8个就设定一个margin-right值
+		}
+		divs[64].className="mm"				//最后两个div单独设置样式
+		divs[65].className="qq"
+		divs[64].innerHTML="莫莫"
+		divs[65].innerHTML="强强"
+
+		input.onclick=function(){				//点击函数
+
+
+			timer=setInterval(fn,100)			//每隔100毫秒执行一次fn函数
+			function fn(){
+				for(var i=0;i<66;i++){
+					divs[i].style.background="pink"; //重置所有div的背景
+				}
+				var m=Math.random()*68;			//Math.random()会随机产生一个[0,1)小数		
+				m=parseInt(m,10)				//parseInt取整	 10 十进制
+				var n=Math.random()*68;			
+				n=parseInt(n,10)		// 取整，十进制
+								
+				if(m==66||m==67){			
+					m=64;
+				}
+				if(n==66||n==67){
+					n=65;
+				}
+				if(m==n){
+					m=64;
+					n=65;
+				}
+				divs[m].style.background="#8be884";  //选中的设置背景颜色
+				divs[n].style.background="#8be884";
+			}
+			setTimeout(function(){				//设置延时定时器1秒后终止间隔定时器timer
+				clearInterval(timer)
+			},1000)
+
+		}
+	}
+</script>
+<body>
+<section>
+<input type="button" value="随机点名">
+<nav></nav>
+</section>
+</body>
+</html>

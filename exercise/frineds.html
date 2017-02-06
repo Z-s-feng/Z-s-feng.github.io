@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+section{
+	width:200px;
+	height:400px;
+	border:2px solid #000;
+}
+div{
+	height:40px;
+	font:25px/40px "宋体";
+	background: blue;
+	text-indent: 15px;
+}
+p{
+	height:35px;
+	font:20px/35px "宋体";
+	text-indent: 15px;
+	
+}
+nav{
+	display: none;
+}
+
+
+</style>
+<script>
+	window.onload=function(){
+		var divs= document.getElementsByTagName('div');
+		var navs= document.getElementsByTagName('nav');
+		var p= document.getElementsByTagName('p');
+		
+		
+			for(var i=0;i<divs.length;i++){
+				divs[i].index=i;
+
+				
+				divs[i].onclick =function(){
+					for(var a=0;a<p.length;a++){
+							p[a].style.background=""
+						}
+					
+					
+
+					if(divs[this.index].style.background=="pink"){
+						for(var i=0;i<divs.length;i++){
+						navs[i].style.display="none";
+						divs[i].style.background=""
+						}
+
+
+					}else{
+						for(var i=0;i<divs.length;i++){
+						navs[i].style.display="none";
+						divs[i].style.background=""
+						}
+						navs[this.index].style.display="block";
+						divs[this.index].style.background="pink"
+
+					}
+
+
+
+				}
+
+			}
+			for(var i=0;i<p.length;i++){
+				
+					p[i].onclick=function(){
+
+						if(this.style.background=="blue"){
+							this.style.background=""
+						}else{
+
+						for(var a=0;a<p.length;a++){
+							p[a].style.background=""
+						}
+						this.style.background="blue"
+
+					}
+				}
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					/*if(	navs[this.index].style.display="block"){
+						navs[this.index].style.display="none"
+					}else{
+						navs[i].style.display="none"
+						navs[this.index].style.display="block"
+
+					}	*/
+			
+
+
+
+					/*if(istab){
+						
+						for(var c=0;c<navs.length;c++){
+							navs[c].style.display="none"
+						}
+						navs[this.index].style.display="block"
+						for(var c=0;c<navs.length;c++){
+							divs[c].style.background="blue"
+						}
+						divs[this.index].style.background="pink"
+						for(var a=0;a<p1.length;a++){
+							
+							p1[a].onclick=function(){
+								for(var b=0;b<p1.length;b++){
+									p1[b].style.background=""
+								}
+								this.style.background="red"
+							}
+
+
+						}
+						for(var a=0;a<p2.length;a++){
+							
+							p2[a].onclick=function(){
+								for(var b=0;b<p2.length;b++){
+									p2[b].style.background=""
+								}
+								this.style.background="red"
+							}
+
+
+						}
+						for(var a=0;a<p3.length;a++){
+							
+							p3[a].onclick=function(){
+								for(var b=0;b<p3.length;b++){
+									p3[b].style.background=""
+								}
+								this.style.background="red"
+							}
+
+
+						}
+
+
+
+
+
+					}
+
+					else{
+
+						navs[this.index].style.display="none"
+						for(var b=0;b<p1.length;b++){
+								p1[b].style.background=""
+								}
+						for(var b=0;b<p2.length;b++){
+							p2[b].style.background=""
+						}
+						for(var b=0;b<p3.length;b++){
+							p3[b].style.background=""
+						}
+					}*/
+
+					
+
+			
+
+		
+
+
+
+
+	}
+
+
+
+
+</script>
+
+
+
+</head>
+<body>
+<section>
+<div>我的好友</div>
+<nav id="nav1">									
+<p>小王</p>
+<p>小张</p>
+<p>小林</p>
+</nav>
+
+<div>企业好友</div>
+<nav id="nav2">
+<p>小王</p>
+<p>小张</p>
+<p>小林</p>
+</nav>
+<div>黑名单</div>
+<nav id="nav3">
+<p>老王</p>
+<p>老张</p>
+<p>老林</p>
+</nav>
+
+
+</section>
+
+
+
+
+</body>
+
+
+</html>

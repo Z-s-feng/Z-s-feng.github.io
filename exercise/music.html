@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width:300px;
+			padding:0 0 10px 0;
+			border:1px solid #ccc;	
+		}
+		ul{
+			padding:0;
+			margin:0;
+			list-style:none;
+			border-bottom:1px solid #ddd;
+		}
+		input{
+			padding:0;
+			margin:0;
+			width:20px;
+			height:20px;
+			vertical-align: middle;
+		}
+		span{
+			display:inline-block;
+			font: 20px/40px "宋体";
+			color:#000;
+			vertical-align: middle;
+		}
+		.left{
+			width:150px;
+		}
+		li{
+			height:40px;
+			width:290px;
+			padding-left:10px;
+			vertical-align: middle;
+		}
+		.bottom{
+			padding:10px 10px 0 10px;
+		}
+		.show{
+			background:#bbb !important;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var ul = document.getElementsByTagName('ul')[0];
+			var input =ul.getElementsByTagName('input');
+			var btn =document.getElementsByTagName('input')[6];
+			var li = ul.getElementsByTagName('li');
+			var isShow = true;
+			var colors = ["red","yellow","green"];
+			// var oldColor = "";
+			for(var a=0;a<li.length;a++){
+				li[a].style.background=colors[a%colors.length];	
+				li[a].index=a;
+				li[a].onmouseover = function(){
+					if(input[this.index].checked==true){
+						this.style.background="blue";
+					}else{
+						// oldColor = this.style.background;
+						this.style.background="pink";
+					}
+				};
+			 	li[a].onmouseout = function(){
+			 		if(input[this.index].checked==true){
+			 			this.style.background="blue";
+			 		}else{
+			 			this.style.background =colors[this.index%colors.length];
+			 		}
+			 	}
+			}
+			
+			btn.onclick = function(){
+			 	if(isShow){
+			 	 	for(var i=0;i<input.length;i++){
+			 	 	 	input[i].checked=true;
+			 			li[i].style.background="blue";
+			 			
+			 	  	} 	
+			 	}else{
+			 	 	for(var i=0;i<input.length;i++){
+			 	 	 	input[i].checked=false;
+			 	 	 	li[i].style.background=colors[i%colors.length];
+			 	 	}
+			 	}
+			 	isShow=!isShow;	
+			}
+			for(var i=0;i<input.length;i++){
+				input[i].index = i;
+			 	input[i].onclick=function(){
+				 console.log("input---"+this.index);
+					if(this.checked==true){
+						li[this.index].style.background="blue";
+					}else{
+						li[this.index].style.background="pink";
+					}
+					var m = 0;
+					for(var i=0;i<input.length;i++){
+				 	 	if(input[i].checked==true){
+				 	 		m++;
+				 	 	}
+				 	} 
+				 	//console.log(m);
+				 	if(m == input.length){
+				 		btn.checked = true;
+				 		isShow = false;
+				 	}else{
+				 		btn.checked = false;
+				 		isShow = true;
+				 }
+			};
+			} 
+			// function check(){
+			// 	 console.log("input---"+this.index);
+			// 	if(this.checked==true){
+			// 		li[this.index].style.background="blue";
+			// 	}else{
+			// 		li[this.index].style.background="pink";
+			// 	}
+			// 	var m = 0;
+			// 	for(var i=0;i<input.length;i++){
+			//  	 	if(input[i].checked==true){
+			//  	 		m++;
+			//  	 	}
+			//  	} 
+			//  	//console.log(m);
+			//  	if(m == input.length){
+			//  		btn.checked = true;
+			//  		isShow = false;
+			//  	}else{
+			//  		btn.checked = false;
+			//  		isShow = true;
+			//  	}
+			// }
+		};
+	</script>
+</head>
+<body>
+<div class="box">
+	<ul id="list">
+		<li class="clearFix">
+			<input type="checkbox">
+			<span class="left">私奔</span>
+			<span class="right">梁博</span>
+		</li>
+		<li class="clearFix">
+			<input type="checkbox">
+			<span class="left">北京北京</span>
+			<span class="right">梁博 黄勇</span>
+		</li>
+		<li class="clearFix">
+			<input type="checkbox">
+			<span class="left">我爱你中国</span>
+			<span class="right">梁博</span>
+		</li>
+		<li class="clearFix">
+			<input type="checkbox">
+			<span class="left">花火</span>
+			<span class="right">梁博</span>
+		</li>
+		<li class="clearFix">
+			<input type="checkbox">
+			<span class="left">回来</span>
+			<span class="right">梁博</span>
+		</li>
+		<li class="clearFix">
+			<input type="checkbox">
+			<span class="left">爱要有你</span>
+			<span class="right">梁博 那英</span>
+		</li>
+	</ul>
+	<div class="bottom">
+		<input type="checkbox">
+	</div>
+</div>
+</body>
+</html>

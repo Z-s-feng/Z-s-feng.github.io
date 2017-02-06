@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+section{
+	width:500px;
+	height:500px;
+	background: gray;
+	position: relative;
+}
+div{
+	height:98px;
+	width:98px;
+	border:1px solid #000;
+	position: absolute;
+	background: red;
+	
+
+}
+#div1{
+	left:200px;
+	top:0;
+}
+#div2{
+	left:100px;
+	top:100px;
+}
+#div3{
+	left:0px;
+	top:200px;
+}
+#div4{
+	left:100px;
+	top:300px;
+}
+#div5{
+	left:200px;
+	top:400px;
+}
+
+</style>
+<script>
+		window.onload=function(){
+			var divs=document.getElementsByTagName('div');
+			var box=document.getElementById('box');
+			var btn=document.getElementById('btn');
+			var btn2=document.getElementById('btn2');
+			var n=1
+
+
+				btn.onclick=function(){
+		
+					if(n==1){
+						n=2;
+						for(var i=0;i<5;i++){
+							divs[i].style.display="block"
+							divs[i].style.left=400-100*i+'px'
+							if(i<3){
+								divs[i].style.top=200-100*i+'px'
+							}else{
+								divs[i].style.top=100*i-200+'px'
+							}
+							
+						}
+
+
+					}else{
+						if(n==2){
+							n=3
+							for(var i=0;i<5;i++){
+							divs[i].style.top=400-100*i+'px'
+							if(i<3){
+							divs[i].style.left=200+100*i+'px'
+							}else{
+							divs[i].style.left=600-100*i+'px'
+							}
+							}
+							
+						}else{
+							if(n==3){
+								n=4
+								for(var i=0;i<5;i++){
+								divs[i].style.left=400-100*i+'px'
+								if(i<3){
+								divs[i].style.top=200+100*i+'px'
+								}else{
+								divs[i].style.top=600-100*i+'px'
+								}
+								}
+
+
+							}else{
+								if(n==4){
+									for(var i=0;i<5;i++){
+										divs[i].style.top=400-100*i+'px'
+										if(i<3){
+										divs[i].style.left=200-100*i+'px'
+										}else{
+										divs[3].style.left=100+'px'
+										divs[4].style.left=200+"px"
+										}
+										}
+									n=1
+								}
+
+
+							}
+						}
+						}
+						
+					}
+				}
+
+</script>
+</head>
+<body>
+<input type=button id="btn" value="点击变换位置"/>
+
+<section id="box">
+
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<div id="div5"></div>
+</section>
+</body>
+</html>
