@@ -1,0 +1,228 @@
+<!docment html>
+<html>
+<head>
+<meta charset="uft-8">
+<title></title>
+<style>
+#wrap{
+	width:250px;
+	height:300px;
+	margin:50px auto;
+	position:relative;
+}
+#box1{
+	width:250px;
+	height:300px;
+	position: relative;
+	cursor: move;
+
+}
+#img1{
+	width:250px;
+	height:300px;
+	vertical-align: top;
+}
+#opa1{
+	width:50px;
+	height:60px;
+	background: blue;
+	opacity: .3;
+	position: absolute;
+	left:0;
+	top:0;
+	display: none;
+}
+#box2{
+	position: relative;
+	width:250px;
+	height:300px;
+	overflow: hidden;
+	position: absolute;
+	left:260px;
+	top:0;
+	display: none;
+	
+}
+#img2{
+	width:1250px;
+	height:1500px;
+	position: absolute;
+	top:0;
+	left:0;
+}
+#list{
+	width:248px;
+	height:40px;
+	/*padding:0 20px;*/
+	background: #fff;
+	margin-top:20px;
+	position: relative;
+	padding-left:2px;
+	
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+li{
+	float:left;
+	margin-right:10px;
+}
+#last{
+	margin-right:0px;
+}
+li img{
+	
+	vertical-align: top;
+	width:32px;
+	height:40px;
+}
+#span1{
+	display: inline-block;
+	width:20px;
+	height:40px;
+	font:40px/40px "宋体";
+	background: skyblue;
+	position: absolute;
+	left:-20px;
+	top:0;
+}
+#span2{
+	display: inline-block;
+	width:20px;
+	height:40px;
+	font:40px/40px "宋体";
+	background: skyblue;
+	position: absolute;
+	right:-20px;
+	top:0;
+}
+.ac{
+	border:1px solid red;
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<div id="box1">
+		<div id="opa1"></div>
+		<img src="img/10.jpg" id="img1">
+	</div>
+	<div id="box2">
+		<img src="img/10.jpg" id="img2">
+	</div>
+	<div id="list">
+		<span id="span1"><</span>
+		<span id="span2">></span>
+		<ul id="uls">
+			<li class="ac"><img src="img/10.jpg"></li>
+			<li><img src="img/11.jpg"></li>
+			<li><img src="img/12.jpg"></li>
+			<li><img src="img/13.jpg"></li>
+			<li><img src="img/14.jpg"></li>
+			<li id="last"><img src="img/15.jpg"></li>			
+		</ul>
+	</div>
+</div>
+
+<script>
+		var box1 = document.getElementById('box1');
+		var box2 = document.getElementById('box2');
+		var opa1 = document.getElementById('opa1');
+		var img1 = document.getElementById('img1');
+		var img2 = document.getElementById('img2');
+		var uls = document.getElementById("uls");
+		var span1 = document.getElementById("span1");
+		var span2 = document.getElementById("span2");
+		var lis = uls.children;
+		var m=0
+
+
+		for(var i=0;i<lis.length;i++){
+			lis[i].index=i
+			lis[i].onclick=function(){
+				for(var i=0;i<lis.length;i++){
+					lis[i].className=""
+				}
+				this.className="ac"
+				img1.src=this.firstElementChild.src
+				img2.src=this.firstElementChild.src
+				m=this.index
+
+			}
+			span1.onclick=function(){
+				for(var i=0;i<lis.length;i++){
+					lis[i].className=""
+				}
+				m--
+				if(m<0){
+					m=lis.length-1
+				}
+				lis[m].className="ac"
+				img1.src=lis[m].firstElementChild.src
+				img2.src=lis[m].firstElementChild.src
+
+			}
+			span2.onclick=function(){
+				for(var i=0;i<lis.length;i++){
+					lis[i].className=""
+				}
+				m++
+				if(m>lis.length-1){
+					m=0
+				}
+				lis[m].className="ac"
+				img1.src=lis[m].firstElementChild.src
+				img2.src=lis[m].firstElementChild.src
+
+			}
+
+		}
+		
+		
+		box1.onmousemove=function(e){
+			opa1.style.display=box2.style.display="block"
+			var img1 = document.getElementById('img1');
+			var img2 = document.getElementById('img2');
+			var imgn = img2.getBoundingClientRect()
+			var box = box1.getBoundingClientRect()
+			var boxn = box2.getBoundingClientRect()
+		
+			var l = e.pageX-box.left-opa1.offsetWidth/2;
+			var t = e.pageY-box.top-opa1.offsetHeight/2
+
+		
+
+			if(l<0){
+				l=0
+			}else if(l > box1.offsetWidth-opa1.offsetWidth){
+				l=box1.offsetWidth-opa1.offsetWidth
+			}
+
+
+			if(t<0){
+				t=0
+			}else if(t > box1.offsetHeight-opa1.offsetHeight){
+				t = box1.offsetHeight-opa1.offsetHeight
+			}
+
+			opa1.style.left=l
+			opa1.style.top=t
+
+			img2.style.left=-l*(imgn.width/boxn.width)
+			img2.style.top=-t*(imgn.height/boxn.height)
+
+		}
+		box1.onmouseout=function(){
+			opa1.style.display=box2.style.display="none"
+		}
+
+
+
+</script>
+
+
+</body>
+</html>
