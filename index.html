@@ -6,6 +6,7 @@
     <style>
         body{
             margin:0;
+            
         }
         a{
             text-decoration:none;
@@ -14,16 +15,25 @@
         .zuopin {
 	        color:#000;
             display:block;
-            width:150px;
+            width:200px;
             height:150px;
             background:#3ebcc8;
             font:30px/150px "微软雅黑";
             text-align:center;
         }
         #sec1{        
-            height:300px;
+            height:150px;
             background: #f8ea89;
-            padding:80px;
+            padding:30px 0px 30px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #sec{        
+            height:150px;
+            background: #f8ea89;
+            padding:0px 0px 30px 0px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -34,6 +44,7 @@
             background: #f8ea89;
             padding:80px 380px;
             text-align: center;
+            position: relative;v
       
         }
         #sec2 a{
@@ -58,7 +69,7 @@
         }
         #xiangying{
            float:left;
-           margin-right:100px;
+/*           margin-right:100px;*/
         }
         
         #yitong{
@@ -76,10 +87,19 @@
            font:40px/120px "宋体";
            text-align: center;
         }
+/*
         #sec2 .five{
             margin-right: 0;
         }
-    
+*/
+        #self{
+            position: absolute;
+            right:50px;
+            bottom:-100px;
+            width:450px;
+            height:300px;
+            font:20px/40px "宋体";
+        }
     </style>
 </head>
 <body>
@@ -90,6 +110,8 @@
         <a href="function/index.html" id="game" class="zuopin">桌面小游戏</a>
         <a href="yidong/index.html" id="move" class="zuopin">移动端</a>
         <a href="xiangyingshi/index.html" id="xiangying" class="zuopin">响应式</a>
+    </section>
+     <section id="sec">   
         <a href="wangyi/index.html" id="wangyi" class="zuopin">网易云音乐</a>
         <a href="yitongdai/index.html" id="yitong" class="zuopin">易通贷整站</a>
         <a href="product/index.html" class="zuopin">团队作品</a>  
@@ -97,7 +119,8 @@
     <div id="div2">
         日常小练习
     </div>
-    <section id="sec2">  
+    <section id="sec2"> 
+       
         <a href="exercise/creat.html">新建文件夹</a>
         <a href="exercise/find.html">查找元素</a>
         <a href="exercise/frineds.html">好友管理</a>
@@ -113,6 +136,19 @@
         <a href="exercise/pic/index.html">图片换位</a>
         <a href="exercise/search.html">搜索</a>
         <a href="exercise/job/index.html" class="five">招聘信息</a>
-    </section>    
+   
+    </section>
+    <div id="self">
+        <h3>个人简介</h3>
+      
+        姓名:    赵尚峰</br>
+        籍贯:    河北邢台</br>
+        学历:    河北经贸大学 本科一批</br>
+        出生日期: 1991.09</br>
+        联系方式: 13501264653</br>
+        工作经验: 2016年6月报班培训半年（秒味课堂）</br>
+        掌握知识: html，css，js，jq，面向对象，ajax，移动端等，在不断进步中；</br>
+        性格:    热爱钻研新知识，头脑灵活，工作学习踏实；</br>
+    </div>    
 </body>
 </html>
